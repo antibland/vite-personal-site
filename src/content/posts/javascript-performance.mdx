@@ -1,0 +1,46 @@
+---
+title: "JavaScript Performance Tips"
+date: "2023-12-20"
+description: "Optimize your JavaScript code for better performance"
+author: "Andrew Hoffman"
+readingTime: 10
+tags: ["javascript", "performance", "web-dev", "optimization"]
+category: "Development"
+---
+
+Performance optimization is crucial for modern web applications. Let's explore some techniques to make your JavaScript faster.
+
+## Memory Management
+
+Understanding the garbage collector:
+
+```javascript
+// Bad - creates new objects in each iteration
+for (let i = 0; i < 1000; i++) {
+  const obj = { value: i };
+  // do something
+}
+
+// Better - reuse the same object
+const obj = { value: 0 };
+for (let i = 0; i < 1000; i++) {
+  obj.value = i;
+  // do something
+}
+```
+
+## Debouncing and Throttling
+
+Control the rate of function execution:
+
+```javascript
+function debounce(fn, delay) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  };
+}
+```
+
+More performance tips coming soon!

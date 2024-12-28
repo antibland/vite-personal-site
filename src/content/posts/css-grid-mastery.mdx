@@ -1,0 +1,37 @@
+---
+title: "CSS Grid Mastery"
+date: "2024-01-10"
+description: "Master CSS Grid layout with practical examples"
+author: "Andrew Hoffman"
+readingTime: 12
+tags: ["css", "web-design", "layout", "tutorials"]
+category: "Design"
+---
+
+CSS Grid has transformed how we approach web layouts. Let's explore some advanced techniques.
+
+## Grid Template Areas
+
+One of the most intuitive features of Grid:
+
+```css
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+}
+```
+
+## Auto-Fit vs Auto-Fill
+
+Understanding the difference:
+
+```css
+.container {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+```
+
+More grid examples coming soon!

@@ -1,0 +1,31 @@
+---
+title: "React Hooks Explained"
+date: "2024-01-15"
+description: "A deep dive into React's hooks system and best practices"
+author: "Andrew Hoffman"
+readingTime: 8
+tags: ["react", "javascript", "hooks", "web-dev"]
+category: "Development"
+---
+
+React Hooks revolutionized how we write React components. Let's explore the most important hooks and when to use them.
+
+## useState: Managing Component State
+
+The most basic hook, but incredibly powerful:
+
+```javascript
+const [count, setCount] = useState(0);
+```
+
+## useEffect: Side Effects in Components
+
+Perfect for data fetching, subscriptions, or manually changing the DOM:
+
+```javascript
+useEffect(() => {
+  document.title = `Count: ${count}`;
+}, [count]);
+```
+
+More examples coming soon!

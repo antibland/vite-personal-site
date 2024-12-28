@@ -1,0 +1,37 @@
+---
+title: "Git Workflow Best Practices"
+date: "2023-12-15"
+description: "Master Git with these workflow tips and tricks"
+author: "Andrew Hoffman"
+readingTime: 8
+tags: ["git", "dev-tools", "best-practices", "version-control"]
+category: "Development"
+---
+
+A solid Git workflow is essential for team collaboration. Let's explore some best practices.
+
+## Commit Messages
+
+Writing meaningful commit messages:
+
+```bash
+# Bad
+git commit -m "fix bug"
+
+# Good
+git commit -m "fix: prevent racing of requests in user authentication"
+```
+
+## Branch Strategy
+
+Using Git Flow effectively:
+
+```bash
+# Feature branch
+git checkout -b feature/user-auth
+
+# Hotfix branch
+git checkout -b hotfix/login-crash
+```
+
+More Git tips coming soon!

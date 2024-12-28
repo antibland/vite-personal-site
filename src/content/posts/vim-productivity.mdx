@@ -1,0 +1,45 @@
+---
+title: "Vim Productivity Tricks"
+date: "2023-10-25"
+description: "Level up your Vim skills with these productivity tips"
+author: "Andrew Hoffman"
+readingTime: 10
+tags: ["vim", "productivity", "dev-tools", "text-editors"]
+category: "Tools"
+---
+
+Vim is more than just an editor - it's a way of thinking about text manipulation. Let's explore some advanced techniques.
+
+## Text Objects
+
+The power of Vim's text objects:
+
+```vim
+# Delete inside parentheses
+di(
+
+# Change inside quotes
+ci"
+
+# Visual select inside brackets
+vi[
+```
+
+## Macros
+
+Recording and playing back commands:
+
+```vim
+# Start recording to register 'q'
+qq
+
+# Your commands here...
+
+# Stop recording
+q
+
+# Play back macro
+@q
+```
+
+More Vim tricks coming soon!

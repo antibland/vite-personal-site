@@ -1,0 +1,66 @@
+/* Our custom styles */
+:root {
+  --text-color: #222;
+  --text-color-muted: rgba(34, 34, 34, 0.5);
+  --bg-color: #fff;
+  --title-color: #ffff00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgb(221, 221, 221);
+    --text-color-muted: rgba(221, 221, 221, 0.5);
+    --bg-color: #111;
+    --title-color: #ffff00;
+  }
+}
+
+html {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+body {
+  font-family: monospace;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  & > header {
+    margin-bottom: 2rem;
+  }
+}
+
+article {
+  margin: 2rem 0;
+}
+
+time {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+article h1 {
+  color: var(--title-color);
+}
+
+.post-title {
+  color: var(--title-color);
+  text-decoration: none;
+}

@@ -1,0 +1,44 @@
+---
+title: "Docker for Beginners"
+date: "2023-11-30"
+description: "Get started with Docker containerization"
+author: "Andrew Hoffman"
+readingTime: 15
+tags: ["docker", "devops", "containers", "dev-tools"]
+category: "DevOps"
+---
+
+Docker has revolutionized how we deploy applications. Let's start with the basics.
+
+## Your First Dockerfile
+
+Creating a simple Node.js application container:
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+## Docker Compose
+
+Managing multiple containers:
+
+```yaml
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+```
+
+More Docker examples coming soon!
