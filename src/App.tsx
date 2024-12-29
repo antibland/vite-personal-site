@@ -40,7 +40,10 @@ const router = createBrowserRouter(
       <Route path="/post/:slug" element={<Post />} />
       <Route path="/tag/:tag" element={<TagPosts />} />
     </Route>
-  )
+  ),
+  {
+    basename: "/vite-personal-site",
+  }
 );
 
 function App() {
