@@ -1,18 +1,44 @@
 ---
-title: "Getting Started with React in 2024"
-date: "2024-01-21"
-description: "A comprehensive guide to starting with React development in 2024"
+title: "Next.js Active Nav with Only CSS"
+date: "2024-12-28"
+description: "Did you know that modern CSS alone can be used to create an active nav item in Next.js?"
 author: "Andy Hoffman"
-readingTime: 8
-tags: ["react", "javascript", "web-dev", "tutorials"]
+readingTime: 4
+tags: ["css", "web-dev", "tutorials"]
 category: "Development"
 featured: true
 draft: false
 ---
 
-React has evolved significantly since its inception. Here's what you need to know to get started with React development in 2024.
+Anyone who has worked on a web application with a navigation section has probably encountered a time where they've wanted to highlight the current page/tab/nav item.
 
-> "React is more than just a library - it's an ecosystem that enables developers to build powerful, scalable user interfaces with ease."
+![A curious cat exploring new technology - just like you're about to explore React](https://placecats.com/neo/800/450?fit=cover&position=top)
+
+This happened to me while using Next.js and, according to their developer advocate, [the recommended solution](https://x.com/asidorenko_/status/1812855952380457259) is to create a client component and add the following code:
+
+```javascript
+"use client";
+const pathname = usePathname();
+
+<Link
+  href={pathname}
+  className={clsx("nav-item", {
+    "nav-item-active": pathname === href,
+  })}
+>
+  {children}
+</Link>;
+```
+
+It seems pretty straightforward, but it's not without a major drawback. Next is forcing us to use client-side navigation. This means that the active nav item is not active until the page is loaded and all client javascript is executed. The need for a client-side hook just to decorate an active nav item seems like the framework is asking too much of developers. For someone like me who has really adopted server-side rendering, the CSS part of my brain lit up and I realized that this could be done without any client-side JavaScript or the need to create yet another component.
+
+## Enter `:has()`
+
+> The functional :has() CSS pseudo-class represents an element if any of the relative selectors that are passed as an argument match at least one element when anchored against this element. This pseudo-class presents a way of selecting a parent element or a previous sibling element with respect to a reference element by taking a relative selector list as an argument.
+
+My mental model of `:has()` is somewhat crude but more concise.
+
+> Establish a parent. Find a selector/condition within the parent's children and go back "up" to the parent.
 
 ![A curious cat exploring new technology - just like you're about to explore React](https://placecats.com/neo/800/450?fit=cover&position=top)
 _Ready to explore the modern React ecosystem in 2024_

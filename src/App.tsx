@@ -6,10 +6,13 @@ import {
 } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
 import Layout from "./layouts/Layout";
-import Home from "./components/Home";
+import About from "./components/About";
+import Work from "./components/Work";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import Archive from "./components/Archive";
 import Post from "./components/Post";
 import TagPosts from "./components/TagPosts";
-import Archive from "./components/Archive";
 
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -29,10 +32,13 @@ const components = {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
+      <Route index element={<About />} />
+      <Route path="/work" element={<Work />} />
+      <Route path="/skills" element={<Skills />} />
+      <Route path="/blog" element={<Archive />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/post/:slug" element={<Post />} />
       <Route path="/tag/:tag" element={<TagPosts />} />
-      <Route path="/archive" element={<Archive />} />
     </Route>
   )
 );

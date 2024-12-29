@@ -1,8 +1,7 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMemo } from "react";
 import { Tag } from "./Tag";
 import { sortTags } from "../utils/tags";
-import { DotsToHome } from "./DotsToHome";
 
 interface FrontMatter {
   title: string;
@@ -48,19 +47,21 @@ const Post: React.FC = () => {
   const { frontmatter: fm } = post;
 
   return (
-    <article>
+    <article className="post-content">
       <header style={{ marginBottom: "2rem" }}>
-        <div
-          style={{
-            marginBottom: "2rem",
-          }}
-        >
-          <DotsToHome />
-          <div style={{ textAlign: "right" }}>
-            <time style={{ opacity: 0.8 }}>{fm.date}</time>
-          </div>
-        </div>
-        <h1>{fm.title}</h1>
+        <h1 style={{ display: "flex", flexDirection: "column" }}>
+          <span>{fm.title}</span>
+          <time
+            style={{
+              opacity: 0.8,
+              fontSize: "1rem",
+              paddingLeft: "0.25rem",
+              marginTop: "0.25rem",
+            }}
+          >
+            {fm.date}
+          </time>
+        </h1>
       </header>
       <Content />
       {fm.tags && (

@@ -13,6 +13,7 @@ interface Post {
   tags?: string[];
   category?: string;
   featured?: boolean;
+  draft?: boolean;
 }
 
 interface MDXModule {
@@ -25,6 +26,7 @@ interface MDXModule {
     tags?: string[];
     category?: string;
     featured?: boolean;
+    draft?: boolean;
   };
   default: React.ComponentType;
 }
@@ -45,7 +47,7 @@ const TagPosts: React.FC = () => {
           return null;
         }
         const { frontmatter: fm } = module;
-        if (!fm.tags?.some((t) => formatTag(t) === tag)) {
+        if (!fm.tags?.some((t) => formatTag(t) === tag) || fm.draft) {
           return null;
         }
         const post: Post = {
@@ -58,6 +60,7 @@ const TagPosts: React.FC = () => {
           tags: fm.tags,
           category: fm.category,
           featured: fm.featured,
+          draft: fm.draft,
         };
         return post;
       })
@@ -70,7 +73,7 @@ const TagPosts: React.FC = () => {
       <div>
         <h2>Tag: {displayTag}</h2>
         <p>No posts found with this tag</p>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/blog" style={{ textDecoration: "none" }}>
           ← Back to all posts
         </Link>
       </div>
@@ -121,7 +124,7 @@ const TagPosts: React.FC = () => {
           </li>
         ))}
       </ul>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/blog" style={{ textDecoration: "none" }}>
         ← Back to all posts
       </Link>
     </div>

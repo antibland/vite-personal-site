@@ -11,6 +11,7 @@ interface Post {
   tags?: string[];
   category?: string;
   featured?: boolean;
+  draft?: boolean;
 }
 
 interface MDXModule {
@@ -23,6 +24,7 @@ interface MDXModule {
     tags?: string[];
     category?: string;
     featured?: boolean;
+    draft?: boolean;
   };
   default: React.ComponentType;
 }
@@ -37,6 +39,7 @@ const Home: React.FC = () => {
         slug: path.replace("../content/posts/", "").replace(".mdx", ""),
         ...post.frontmatter,
       }))
+      .filter((post) => !post.draft)
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, []);
 

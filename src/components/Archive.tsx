@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
-import { DotsToHome } from "./DotsToHome";
 
 interface Post {
   title: string;
@@ -12,6 +11,7 @@ interface Post {
   tags?: string[];
   category?: string;
   featured?: boolean;
+  draft?: boolean;
 }
 
 interface MDXModule {
@@ -29,28 +29,23 @@ const Archive: React.FC = () => {
         ...post.frontmatter,
         slug: path.replace("../content/posts/", "").replace(".mdx", ""),
       }))
+      .filter((post) => !post.draft)
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, []);
 
-  return (
-    <div>
-      <header style={{ marginBottom: "2rem" }}>
-        <div>
-          <DotsToHome />
-          <h1 style={{ margin: 0, textAlign: "right" }}>archive</h1>
-        </div>
-      </header>
-      <div>
-        {posts.map((post) => (
-          <article key={post.slug} style={{ marginBottom: "1.5rem" }}>
-            <Link to={`/post/${post.slug}`} className="post-title">
-              <h2>{post.title}</h2>
-            </Link>
-            <time>{post.date}</time>
-          </article>
-        ))}
-      </div>
+  return posts.length > 0 ? (
+    <div className="posts">
+      {posts.map((post) => (
+        <article key={post.slug}>
+          <Link to={`/post/${post.slug}`} className="post-title">
+            <h2>{post.title}</h2>
+          </Link>
+          <time>{post.date}</time>
+        </article>
+      ))}
     </div>
+  ) : (
+    <div>No posts found</div>
   );
 };
 
