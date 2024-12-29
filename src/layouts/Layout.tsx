@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
+import { getAssetPath } from "../utils/assetPath";
 import "../styles/reset.css";
 import "../styles/main.css";
 
@@ -12,7 +13,11 @@ const Layout: React.FC = () => {
         <h1 className="site-title">
           <Link to="/">
             <svg className="logo">
-              <use xlinkHref="/assets/svg-defs.svg?v=2#svg-logo" />
+              <use
+                xlinkHref={
+                  getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"
+                }
+              />
             </svg>
           </Link>
         </h1>

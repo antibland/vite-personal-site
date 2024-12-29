@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { getAssetPath } from "../utils/assetPath";
 
 interface Project {
   title: string;
@@ -14,7 +15,7 @@ const Work: React.FC = () => {
       title: "Fabrica (current)",
       icon: (
         <img
-          src="/icons/fabrica.png"
+          src={getAssetPath("icons/fabrica.png")}
           alt="Fabrica logo"
           width={24}
           height={24}
@@ -35,7 +36,9 @@ const Work: React.FC = () => {
       title: "Custom Blog Integration",
       icon: (
         <svg className="logo" style={{ width: 22, height: 24 }}>
-          <use xlinkHref="/assets/svg-defs.svg?v=2#svg-logo" />
+          <use
+            xlinkHref={getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"}
+          />
         </svg>
       ),
       description:
@@ -46,7 +49,9 @@ const Work: React.FC = () => {
       title: "Stack Overflow Elite Contributor",
       icon: (
         <svg className="logo" style={{ width: 22, height: 20, fill: "orange" }}>
-          <use xlinkHref="/assets/svg-defs.svg?v=3#svg-so" />
+          <use
+            xlinkHref={getAssetPath("assets/svg-defs.svg") + "?v=3#svg-so"}
+          />
         </svg>
       ),
       description: `I've reached millions of people over a ${

@@ -1,12 +1,13 @@
-import React from "react";
+import { FC } from "react";
+import { getAssetPath } from "../utils/assetPath";
 
-const About: React.FC = () => {
+const About: FC = () => {
   return (
     <div className="section">
       <h1>Hey, I'm Andy</h1>
       <div className="content">
         <img
-          src="/andy-profile-scarf.webp"
+          src={getAssetPath("andy-profile-scarf.webp")}
           alt="Andy Hoffman"
           style={{
             objectFit: "cover",
