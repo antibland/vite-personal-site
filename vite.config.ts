@@ -6,7 +6,6 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/vite-personal-site/",
   plugins: [
     {
       enforce: "pre",
