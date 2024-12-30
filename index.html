@@ -5,6 +5,21 @@
     <link rel="shortcut icon" href="/vite-personal-site/assets/favicon-8xjpDYhX.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <script>
+      // Redirect script
+      (function () {
+        const redirect = new URLSearchParams(window.location.search).get("p");
+        if (redirect) {
+          const cleanRedirect = redirect.replace(/^\/+/, "");
+          window.history.replaceState(
+            null,
+            null,
+            window.location.pathname.replace(/\/$/, "") +
+              (cleanRedirect ? "/" + cleanRedirect : "")
+          );
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/vite-personal-site/assets/index-Drb6FRCM.js"></script>
     <link rel="stylesheet" crossorigin href="/vite-personal-site/assets/index-C4WB-m68.css">
   </head>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Get the current path and query string
+      const path = window.location.pathname.slice(1);
+      const query = window.location.search;
+
+      // Remove /vite-personal-site from the beginning if it exists
+      const cleanPath = path.replace(/^vite-personal-site\//, "");
+
+      // Encode the path to preserve special characters
+      const encodedPath = encodeURIComponent(`/${cleanPath}${query}`);
+
+      // Redirect to the main page with the path as a parameter
+      window.location.href = `/vite-personal-site/?p=${encodedPath}`;
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
