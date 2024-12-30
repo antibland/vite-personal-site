@@ -4,11 +4,20 @@ export const formatTag = (tag: string): string => {
 
 export const unformatTag = (tag: string): string => {
   // Special cases for tags that should be uppercase
-  const uppercaseTags = ["css", "html", "mdx", "jsx", "tsx", "api"];
+  const uppercaseTags = ["css", "html", "mdx", "jsx", "tsx", "api", "rsc"];
   const lowercaseTag = tag.toLowerCase();
 
   if (uppercaseTags.includes(lowercaseTag)) {
     return tag.toUpperCase();
+  }
+
+  // Special cases for tags with custom formatting
+  const customTags: { [key: string]: string } = {
+    "next-js": "Next.js",
+  };
+
+  if (customTags[lowercaseTag]) {
+    return customTags[lowercaseTag];
   }
 
   // Default case: capitalize each word
