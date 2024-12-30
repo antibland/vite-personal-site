@@ -27,26 +27,28 @@ const About: FC = () => {
               maxWidth: "800px",
               height: "auto",
               display: "block",
-              marginBottom: "1.5rem",
               contentVisibility: "auto",
             }}
           />
-          <h1>👋 Internet</h1>
-          <p style={{ fontSize: "var(--text-lg)" }}>
-            Hi, I'm Andy Hoffman, a senior front-end engineer building elegant
-            solutions to complex problems. Today, everyone brands themselves
-            with the full-stack moniker, and while I'm technically full stack,
-            my strongest skills are on the front end of the stack. I'm proud to
-            be a front-end engineer.
-          </p>
-          <p style={{ fontSize: "var(--text-lg)" }}>
-            I started tinkering on the web back in 2000, and was quickly drawn
-            to HTML semantics and the simplicity and expressiveness of clean
-            markup and CSS. Becoming skilled in UI/UX means identifying what
-            matters to users and what does not. Once everything unnecessary is
-            removed, the front end revs and purrs like a well-tuned machine.
-            This has never changed since I started and is even more true today.
-          </p>
+          <div className="text-content">
+            <h1>👋 Internet</h1>
+            <p style={{ fontSize: "var(--text-lg)" }}>
+              Hi, I'm Andy Hoffman, a senior front-end engineer building elegant
+              solutions to complex problems. Today, everyone brands themselves
+              with the full-stack moniker, and while I'm technically full stack,
+              my strongest skills are on the front end of the stack. I'm proud
+              to be a front-end engineer.
+            </p>
+            <p style={{ fontSize: "var(--text-lg)" }}>
+              I started tinkering on the web back in 2000, and was quickly drawn
+              to HTML semantics and the simplicity and expressiveness of clean
+              markup and CSS. Becoming skilled in UI/UX means identifying what
+              matters to users and what does not. Once everything unnecessary is
+              removed, the front end revs and purrs like a well-tuned machine.
+              This has never changed since I started and is even more true
+              today.
+            </p>
+          </div>
         </div>
         <aside className="about-sidebar">
           <nav className="social-links">
