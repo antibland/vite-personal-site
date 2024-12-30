@@ -10,7 +10,14 @@ const About: FC = () => {
         <div className="about-main">
           <img
             src={getAssetPath("andy-profile-scarf.webp")}
+            srcSet={`${getAssetPath(
+              "andy-profile-scarf.webp"
+            )} 1x, ${getAssetPath("andy-profile-scarf@2x.webp")} 2x`}
             alt="Andy Hoffman"
+            width="800"
+            height="533"
+            loading="eager"
+            fetchPriority="high"
             style={{
               objectFit: "cover",
               borderRadius: "8px",

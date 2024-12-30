@@ -10,6 +10,24 @@ const Layout: React.FC = () => {
   return (
     <div className="container">
       <header className="main-header">
+        {location.pathname === "/" && (
+          <>
+            <link
+              rel="preload"
+              as="image"
+              href={getAssetPath("andy-profile-scarf.webp")}
+              type="image/webp"
+              media="(max-resolution: 1dppx)"
+            />
+            <link
+              rel="preload"
+              as="image"
+              href={getAssetPath("andy-profile-scarf@2x.webp")}
+              type="image/webp"
+              media="(min-resolution: 2dppx)"
+            />
+          </>
+        )}
         <h1 className="site-title">
           <Link to="/">
             <svg className="logo">
