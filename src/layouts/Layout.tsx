@@ -16,16 +16,14 @@ const Layout: React.FC = () => {
               rel="preload"
               as="image"
               href={getAssetPath("andy-profile-scarf.webp")}
+              imageSrcSet={`${getAssetPath(
+                "andy-profile-scarf.webp"
+              )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+              imageSizes="(max-width: 800px) 100vw, 800px"
               type="image/webp"
-              media="(max-resolution: 1dppx)"
+              fetchPriority="high"
             />
-            <link
-              rel="preload"
-              as="image"
-              href={getAssetPath("andy-profile-scarf@2x.webp")}
-              type="image/webp"
-              media="(min-resolution: 2dppx)"
-            />
+            <meta name="priority-hints" content="highest" />
           </>
         )}
         <h1 className="site-title">

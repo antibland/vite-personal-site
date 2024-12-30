@@ -636,3 +636,9 @@ body {
     margin-top: 2rem;
   }
 }
+
+.priority-image {
+  contain: paint;
+  content-visibility: auto;
+  will-change: transform;
+}

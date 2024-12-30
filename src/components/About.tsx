@@ -5,19 +5,21 @@ import * as SimpleIcons from "simple-icons";
 const About: FC = () => {
   return (
     <div className="section about-section">
-      <h1>Hey, I'm Andy</h1>
       <div className="about-container">
         <div className="about-main">
           <img
             src={getAssetPath("andy-profile-scarf.webp")}
             srcSet={`${getAssetPath(
               "andy-profile-scarf.webp"
-            )} 1x, ${getAssetPath("andy-profile-scarf@2x.webp")} 2x`}
+            )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+            sizes="(max-width: 800px) 100vw, 800px"
             alt="Andy Hoffman"
             width="800"
             height="533"
             loading="eager"
+            decoding="sync"
             fetchPriority="high"
+            className="priority-image"
             style={{
               objectFit: "cover",
               borderRadius: "8px",
@@ -26,8 +28,10 @@ const About: FC = () => {
               height: "auto",
               display: "block",
               marginBottom: "1.5rem",
+              contentVisibility: "auto",
             }}
           />
+          <h1>Hey, I'm Andy</h1>
           <p>
             Hi, I'm Andy Hoffman, a front-end engineer building elegant
             solutions to complex problems. Today, everyone brands themselves
