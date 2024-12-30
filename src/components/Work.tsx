@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useRef } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import * as SimpleIcons from "simple-icons";
 
@@ -8,6 +8,11 @@ interface Project {
   technologies: string[];
   link?: string;
   icon?: ReactNode;
+  images?: Array<{
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
 }
 
 const getIconSlug = (name: string): string => {
@@ -34,6 +39,38 @@ const getIconByName = (name: string) => {
 };
 
 const Work: React.FC = () => {
+  const dialogRefs = useRef<(HTMLDialogElement | null)[]>([]);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleStackClick = (index: number) => {
+    const dialog = dialogRefs.current[index];
+    if (dialog) {
+      dialog.showModal();
+      requestAnimationFrame(() => {
+        dialog.classList.add("dialog-open");
+      });
+    }
+  };
+
+  const handleDialogClose = (dialog: HTMLDialogElement) => {
+    const dialogIndex = dialogRefs.current.indexOf(dialog);
+    const triggerButton = buttonRefs.current[dialogIndex];
+
+    // Start the closing animation
+    dialog.classList.remove("dialog-open");
+
+    // Wait for the animation to finish before actually closing
+    const handleTransitionEnd = () => {
+      dialog.close();
+      if (triggerButton) {
+        triggerButton.focus();
+      }
+      dialog.removeEventListener("transitionend", handleTransitionEnd);
+    };
+
+    dialog.addEventListener("transitionend", handleTransitionEnd);
+  };
+
   const projects: Project[] = [
     {
       title: "Fabrica (current)",
@@ -49,6 +86,23 @@ const Work: React.FC = () => {
         "Fabrica brings physical land onchain, and allows you to buy, sell, borrow againsg it, and trade it. As the only front end developer on the team, I'm responsible for the entire user experience.",
       technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Wagmi"],
       link: "https://fabrica.land/",
+      images: [
+        {
+          src: getAssetPath("work/fabrica/1.webp"),
+          alt: "Marketplace land purchase options",
+          caption: "Marketplace land purchase made easy",
+        },
+        {
+          src: getAssetPath("work/fabrica/2.webp"),
+          alt: "Onchain social profile header",
+          caption: "Onchain social profile header",
+        },
+        {
+          src: getAssetPath("work/fabrica/3.webp"),
+          alt: "Beautiful, expressive profile pages",
+          caption: "Beautiful, expressive profile pages",
+        },
+      ],
     },
     {
       title: "Custom Blog Integration",
@@ -62,6 +116,23 @@ const Work: React.FC = () => {
       description:
         "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
       technologies: ["React", "Vite", "TypeScript", "MDX"],
+      images: [
+        {
+          src: getAssetPath("work/custom-blog/1.webp"),
+          alt: "Blog post editor with live preview",
+          caption: "Rich markdown editor with live preview",
+        },
+        {
+          src: getAssetPath("work/custom-blog/2.webp"),
+          alt: "Blog post listing with categories",
+          caption: "Organized post listing with category filtering",
+        },
+        {
+          src: getAssetPath("work/custom-blog/3.webp"),
+          alt: "Code syntax highlighting",
+          caption: "Beautiful code syntax highlighting",
+        },
+      ],
     },
     {
       title: "Stack Overflow Elite Contributor",
@@ -94,6 +165,69 @@ const Work: React.FC = () => {
                 <span>{project.title}</span>
               </h3>
               <p className="project-content">{project.description}</p>
+              {project.images && (
+                <>
+                  <button
+                    ref={(el) => (buttonRefs.current[index] = el)}
+                    className="project-images-stack"
+                    onClick={() => handleStackClick(index)}
+                    aria-label={`View all ${project.title} images`}
+                  >
+                    {project.images.map((image, imgIndex) => (
+                      <div key={imgIndex} className="project-image-wrapper">
+                        <img
+                          className="project-image"
+                          src={image.src}
+                          alt={image.alt}
+                        />
+                        {imgIndex === 0 && (
+                          <div className="project-image-caption">
+                            View all product images
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </button>
+                  <dialog
+                    ref={(el) => (dialogRefs.current[index] = el)}
+                    className="project-dialog"
+                    onCancel={(e) => {
+                      e.preventDefault();
+                      handleDialogClose(e.currentTarget);
+                    }}
+                    onClick={(e) => {
+                      if (e.target === e.currentTarget) {
+                        handleDialogClose(e.currentTarget);
+                      }
+                    }}
+                  >
+                    <div className="dialog-content">
+                      <header className="dialog-header">
+                        <h2>{project.title} Images</h2>
+                        <button
+                          className="dialog-close"
+                          onClick={(e) =>
+                            handleDialogClose(
+                              e.currentTarget.closest("dialog")!
+                            )
+                          }
+                          aria-label="Close dialog"
+                        >
+                          ×
+                        </button>
+                      </header>
+                      <div className="dialog-body">
+                        {project.images.map((image, imgIndex) => (
+                          <figure key={imgIndex}>
+                            <img src={image.src} alt={image.alt} />
+                            <figcaption>{image.caption}</figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    </div>
+                  </dialog>
+                </>
+              )}
               {project.link && (
                 <a
                   href={project.link}
