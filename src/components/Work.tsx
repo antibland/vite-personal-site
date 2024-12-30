@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { getAssetPath } from "../utils/assetPath";
+import * as SimpleIcons from "simple-icons";
 
 interface Project {
   title: string;
@@ -8,6 +9,29 @@ interface Project {
   link?: string;
   icon?: ReactNode;
 }
+
+const getIconSlug = (name: string): string => {
+  // Convert common names to their simple-icons slug
+  const nameMap: { [key: string]: string } = {
+    React: "react",
+    TypeScript: "typescript",
+    JavaScript: "javascript",
+    "Next.js": "nextdotjs",
+    TailwindCSS: "tailwindcss",
+    Vite: "vite",
+    MDX: "mdx",
+    CSS: "css3",
+    Wagmi: "ethereum", // Using Ethereum icon as Wagmi is blockchain-related
+  };
+
+  return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
+};
+
+const getIconByName = (name: string) => {
+  const slug = getIconSlug(name);
+  const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
+  return (SimpleIcons as any)[iconKey];
+};
 
 const Work: React.FC = () => {
   const projects: Project[] = [
@@ -23,13 +47,7 @@ const Work: React.FC = () => {
       ),
       description:
         "Fabrica brings physical land onchain, and allows you to buy, sell, borrow againsg it, and trade it. As the only front end developer on the team, I'm responsible for the entire user experience.",
-      technologies: [
-        "React 19",
-        "Next.js 15",
-        "TypeScript",
-        "TailwindCSS",
-        "Wagmi",
-      ],
+      technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Wagmi"],
       link: "https://fabrica.land/",
     },
     {
@@ -60,7 +78,6 @@ const Work: React.FC = () => {
       technologies: ["React", "JavaScript", "TypeScript", "CSS"],
       link: "https://stackoverflow.com/users/949217/andy-hoffman",
     },
-    // Add more projects as needed
   ];
 
   return (
@@ -92,11 +109,25 @@ const Work: React.FC = () => {
                 </a>
               )}
               <div className="technologies">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
+                {project.technologies.map((tech, i) => {
+                  const icon = getIconByName(tech);
+                  return (
+                    <span key={i} className="tech-tag">
+                      {icon && (
+                        <svg
+                          role="img"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="skill-icon"
+                          fill="currentColor"
+                        >
+                          <path d={icon.path} />
+                        </svg>
+                      )}
+                      {tech}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}

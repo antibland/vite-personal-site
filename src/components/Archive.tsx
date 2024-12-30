@@ -1,5 +1,5 @@
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
 
 interface Post {
   title: string;
@@ -21,16 +21,30 @@ interface MDXModule {
 
 const Archive: React.FC = () => {
   const posts = useMemo(() => {
-    const allPosts = import.meta.glob<MDXModule>("../content/posts/*.mdx", {
-      eager: true,
-    });
-    return Object.entries(allPosts)
-      .map(([path, post]) => ({
-        ...post.frontmatter,
-        slug: path.replace("../content/posts/", "").replace(".mdx", ""),
-      }))
-      .filter((post) => !post.draft)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    try {
+      const allPosts = import.meta.glob<MDXModule>("../content/posts/*.mdx", {
+        eager: true,
+      });
+
+      return Object.entries(allPosts)
+        .map(([path, post]) => {
+          if (!post?.frontmatter) {
+            console.warn(`No frontmatter found for ${path}`);
+            return null;
+          }
+          return {
+            ...post.frontmatter,
+            slug: path.replace("../content/posts/", "").replace(".mdx", ""),
+          };
+        })
+        .filter((post): post is Post => post !== null && !post.draft)
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+    } catch (error) {
+      console.error("Error loading posts:", error);
+      return [];
+    }
   }, []);
 
   return posts.length > 0 ? (
@@ -41,6 +55,7 @@ const Archive: React.FC = () => {
             <h2>{post.title}</h2>
           </Link>
           <time>{post.date}</time>
+          {post.description && <p>{post.description}</p>}
         </article>
       ))}
     </div>

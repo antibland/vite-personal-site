@@ -1,3 +1,4 @@
+import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -46,12 +47,14 @@ const router = createBrowserRouter(
   }
 );
 
-function App() {
+const App: React.FC = () => {
   return (
-    <MDXProvider components={components}>
-      <RouterProvider router={router} />
-    </MDXProvider>
+    <React.StrictMode>
+      <MDXProvider components={components}>
+        <RouterProvider router={router} />
+      </MDXProvider>
+    </React.StrictMode>
   );
-}
+};
 
 export default App;
