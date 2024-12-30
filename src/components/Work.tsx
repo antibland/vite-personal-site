@@ -164,7 +164,6 @@ const Work: React.FC = () => {
                 )}
                 <span>{project.title}</span>
               </h3>
-              <p className="project-content">{project.description}</p>
               {project.images && (
                 <>
                   <button
@@ -203,7 +202,7 @@ const Work: React.FC = () => {
                   >
                     <div className="dialog-content">
                       <header className="dialog-header">
-                        <h2>{project.title} Images</h2>
+                        <h2 className="dialog-title">{project.title} Images</h2>
                         <button
                           className="dialog-close"
                           onClick={(e) =>
@@ -228,20 +227,7 @@ const Work: React.FC = () => {
                   </dialog>
                 </>
               )}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    width: "fit-content",
-                    marginBottom: "1rem",
-                    display: "inline-block",
-                  }}
-                >
-                  View Project →
-                </a>
-              )}
+              <div className="project-content">{project.description}</div>
               <div className="technologies">
                 {project.technologies.map((tech, i) => {
                   const icon = getIconByName(tech);
@@ -263,6 +249,16 @@ const Work: React.FC = () => {
                   );
                 })}
               </div>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  View Project →
+                </a>
+              )}
             </div>
           ))}
         </div>
