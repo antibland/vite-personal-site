@@ -58,7 +58,7 @@ const router = createBrowserRouter(
     </Route>
   ),
   {
-    basename: "/vite-personal-site",
+    basename: "/vite-personal-site/",
   }
 );
 
