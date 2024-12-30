@@ -56,7 +56,7 @@ const Post: React.FC = () => {
               opacity: 0.8,
               fontSize: "1rem",
               paddingLeft: "0.25rem",
-              marginTop: "0.25rem",
+              marginTop: "0.5rem",
             }}
           >
             {fm.date}
