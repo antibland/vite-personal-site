@@ -26,7 +26,22 @@ const components = {
     <p style={{ color: "var(--text-color)" }} {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a style={{ color: "var(--text-color)" }} {...props} />
+    <a
+      style={{
+        color: "var(--primary-color)",
+        textDecoration: "none",
+        outline: "1px solid transparent",
+        outlineOffset: "2px",
+        transition: "outline-color 0.2s ease",
+      }}
+      onMouseOver={(e) => {
+        e.currentTarget.style.outlineColor = "var(--primary-color)";
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.outlineColor = "transparent";
+      }}
+      {...props}
+    />
   ),
 };
 
