@@ -1,3 +1,5 @@
+@import "prism-themes/themes/prism-vsc-dark-plus.css";
+
 /* Our custom styles */
 :root {
   --text-color: #222;
