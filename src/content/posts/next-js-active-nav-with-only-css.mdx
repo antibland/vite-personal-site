@@ -1,6 +1,6 @@
 ---
 title: "Next.js Active Nav with Only CSS"
-date: "2024-12-28"
+date: "2024-12-29"
 description: "Did you know that modern CSS alone can be used to create an active nav item in Next.js?"
 author: "Andy Hoffman"
 readingTime: 4
@@ -10,11 +10,17 @@ featured: true
 draft: false
 ---
 
-Anyone who has worked on a web application with a navigation section has probably encountered a time where they've wanted to highlight the current page/tab/nav item.
+Anyone who has worked on a web application with a navigation section has probably encountered a time where they've wanted to highlight the current nav item.
 
-![A curious cat exploring new technology - just like you're about to explore React](https://placecats.com/neo/800/450?fit=cover&position=top)
+<video width="100%" controls>
+  <source
+    src="https://github.com/user-attachments/assets/295ae178-e717-48d7-a4f2-20eac03d82ff"
+    type="video/mp4"
+  />
+  Your browser does not support the video tag.
+</video>
 
-This happened to me while using Next.js and, according to their developer advocate, [the recommended solution](https://x.com/asidorenko_/status/1812855952380457259) is to create a client component and add the following code:
+I recently ran into this using Next.js and, according to their developer advocate, [the recommended solution](https://x.com/asidorenko_/status/1812855952380457259) is to create a client component and add the following code:
 
 ```tsx
 "use client";
@@ -30,7 +36,7 @@ const pathname = usePathname();
 </Link>;
 ```
 
-It seems pretty straightforward, but it's not without a major drawback. Next is forcing us to use client-side navigation. This means that the active nav item is not active until the page is loaded and all client javascript is executed. The need for a client-side hook just to decorate an active nav item seems like the framework is asking too much of developers. For someone like me who has really adopted server-side rendering, the CSS part of my brain lit up and I realized that this could be done without any client-side JavaScript or the need to create yet another component.
+It seems pretty straightforward, but it's not without a major drawback. Next is forcing us to use client-side navigation. This means that the active nav item is not active until the page is loaded and all client javascript is executed. The need for a client-side hook just to decorate an active nav item seems like the framework is asking too much of developers. For someone like me who has prioritized the adoption of server-side rendering whenever possible, the CSS part of my brain lit up. I realized that this could be accomplished without any additional client-side JavaScript or the need to create yet another component.
 
 ## Enter `:has()`
 
@@ -38,63 +44,79 @@ It seems pretty straightforward, but it's not without a major drawback. Next is 
 
 My mental model of `:has()` is somewhat crude but more concise.
 
-> Establish a parent. Find a selector/condition within the parent's children and go back "up" to the parent.
+> 1. Establish a parent.
+> 2. Find a selector/condition within the parent's children.
+> 3. Go "back up" to the parent and apply the styles.
 
-![A curious cat exploring new technology - just like you're about to explore React](https://placecats.com/neo/800/450?fit=cover&position=top)
-_Ready to explore the modern React ecosystem in 2024_
+## The CSS Solution
 
-## Prerequisites
+In our page components, we're going to add an `id` to the `main` elemenet.
 
-- Node.js and npm/pnpm
-- Basic JavaScript knowledge
-- A code editor
-
-## Setting Up Your First Project
-
-Using Vite is now the recommended way to start a new React project. Here's how:
-
-```bash
-pnpm create vite my-react-app --template react-ts
-cd my-react-app
-pnpm install
-pnpm dev
-```
-
-Once your project is set up, you can explore some excellent resources to deepen your understanding. The [official React documentation](https://react.dev) has been completely revamped for 2024 and provides an interactive learning experience. For hands-on practice, check out the [React TypeScript Playground](https://www.typescriptlang.org/play?jsx=2&esModuleInterop=true&e=196#example/typescript-with-react) where you can experiment with code without any setup.
-
-Looking for real-world examples? The [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/) is an invaluable resource for TypeScript users, and [CodeSandbox's React templates](https://codesandbox.io/s/new) provide a variety of starter projects you can fork and modify. You might also want to explore [Vite's official examples repository](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to understand the project structure better.
-
-![A focused cat demonstrating the concentration needed for React development](https://placecats.com/bella/800/500?fit=cover&position=center)
-_Understanding the React component lifecycle requires focus and patience_
-
-> **Pro tip:** Using TypeScript from the start will save you hours of debugging and provide better tooling support.
-
-## Key Concepts
-
-1. Components - The building blocks of React applications
-2. Props - How components communicate
-3. State Management - Handling data flow
-4. Hooks - Function-based state and lifecycle features
-
-Here's a simple example of a React component:
+For example, here's the RSC home page.
 
 ```tsx
-import { useState } from "react";
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
+export default function Home() {
   return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
+    <main id="home" className="...">
+      <h1>Home</h1>
+    </main>
   );
 }
-
-export default Counter;
 ```
 
-> **Note:** Modern React encourages the use of functional components and hooks over class components.
+And here is our RSC sidebar.
 
-Stay tuned for more detailed explanations of each concept!
+```tsx
+export default function Sidebar() {
+  return (
+    <aside className="...">
+      <h1 className="...">Side Nav</h1>
+      <ul className="...">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </aside>
+  );
+}
+```
+
+Finally, we'll add the CSS to highlight the active nav item.
+
+```css
+:has(#home) aside a[href="/"] {
+  color: red;
+}
+```
+
+Remember that our `:has` is starting from the root of the document. Once we find the `#home`, we "go back up" to the `aside` and find the `a[href="/"]` and apply the styles.
+
+Pretty cool, right? Now let's recap the pros and cons of this approach.
+
+### Pros
+
+- No client-side JavaScript!
+- No need to create a new component
+- No need to use `clsx` or `twMerge`
+- No need to use `usePathname`
+
+### Cons
+
+- Requires a little additional markup
+- Requires hardcoding the `id` in the `main` element to the path of the page
+
+To this last point, you can see how the CSS needs to grow to support more pages.
+
+```css
+:has(#home) aside a[href="/"],
+:has(#about) aside a[href="/about"],
+:has(#contact) aside a[href="/contact"] {
+  color: red;
+}
+```
