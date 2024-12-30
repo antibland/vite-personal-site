@@ -12,10 +12,10 @@ const About: FC = () => {
             srcSet={`${getAssetPath(
               "andy-profile-scarf.webp"
             )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
-            sizes="(max-width: 800px) 100vw, 800px"
+            sizes="(max-width: 800px) 100vw, 515px"
             alt="Andy Hoffman"
-            width="800"
-            height="533"
+            width="515"
+            height="344"
             loading="eager"
             decoding="sync"
             fetchPriority="high"
