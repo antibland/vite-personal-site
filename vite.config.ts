@@ -7,7 +7,7 @@ import rehypePrism from "rehype-prism-plus";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/vite-personal-site/",
+  base: "/",
   plugins: [
     {
       enforce: "pre",
