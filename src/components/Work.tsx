@@ -115,7 +115,7 @@ const Work: React.FC = () => {
       ),
       description:
         "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
-      technologies: ["React", "Vite", "TypeScript", "MDX"],
+      technologies: ["React", "Vite", "TypeScript", "MDX", "Claude"],
       images: [
         {
           src: getAssetPath("work/custom-blog/1.webp"),

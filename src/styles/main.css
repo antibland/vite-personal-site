@@ -5,9 +5,10 @@
   --text-color: #222;
   --text-color-muted: rgba(34, 34, 34, 0.5);
   --bg-color: #fff;
+  --border-color: #eee;
+  --box-shadow-color: 1px 1px 5px rgba(0, 0, 0, 0.2);
   --primary-color: #0070f3;
   --primary-color-darker: #0050b3;
-  --border-color: #eaeaea;
   --header-height: 4rem;
   --logo-width: 75px;
   --logo-height: 77px;
@@ -46,6 +47,8 @@
     --text-color: rgb(221, 221, 221);
     --text-color-muted: rgba(221, 221, 221, 0.5);
     --bg-color: #111;
+    --border-color: #eaeaea;
+    --box-shadow-color: 0 0 8px rgba(50, 145, 255, 0.3);
     --primary-color: #3291ff;
     --border-color: #333;
     --logo-color: #fff;
@@ -339,6 +342,7 @@ body {
 .project-card {
   background: var(--bg-color);
   border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow-color);
   border-radius: 8px;
   padding: var(--space-4);
   margin-bottom: var(--space-4);
@@ -521,7 +525,7 @@ body {
   color: white;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.35rem;
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
