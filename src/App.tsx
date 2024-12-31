@@ -56,10 +56,7 @@ const router = createBrowserRouter(
       <Route path="/post/:slug" element={<Post />} />
       <Route path="/tag/:tag" element={<TagPosts />} />
     </Route>
-  ),
-  {
-    basename: "/vite-personal-site/",
-  }
+  )
 );
 
 const App: React.FC = () => {
