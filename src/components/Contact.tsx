@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
       <h1>Contact Me</h1>
       <div className="content">
         <form
-          action="https://formspree.io/f/mldddyol"
+          action="https://formspree.io/f/antibland@gmail.com"
           method="POST"
           className="contact-form"
         >
