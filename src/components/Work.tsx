@@ -105,6 +105,47 @@ const Work: React.FC = () => {
       ],
     },
     {
+      title: "CodePen Projects",
+      icon: (
+        <img
+          src={getAssetPath("icons/codepen-logo-white.png")}
+          alt="CodePen logo"
+          width={20}
+          height={20}
+        />
+      ),
+      description:
+        "I've had so much fun with CodePen over the years. More recently, I use it for prototyping ideas and sandboxing newer technologies.",
+      technologies: ["React", "JavaScript", "CSS", "SCSS"],
+      link: "https://codepen.io/antibland",
+      images: [
+        {
+          src: getAssetPath("work/codepen/animated-stacked-pages.gif"),
+          alt: "Animated Stacked Pages",
+          caption:
+            "Using SCSS loops to create stacks of paper with slightly different angles and shadows, creating a more organic, realistic presentation of paper.",
+        },
+        {
+          src: getAssetPath("work/codepen/slot-machine.gif"),
+          alt: "React Slot Machine Demo",
+          caption:
+            "A slot machine built with vanilla React. The challenge here was setting up the sprites properly and applying a smooth, realistic easing animation to each wheel of the slot.",
+        },
+        {
+          src: getAssetPath("work/codepen/brady-bunch.gif"),
+          alt: "CSS Grid: Brady Bunch Edition",
+          caption:
+            "When Grid was considered bleeding edge (and really misunderstood), I wanted to create a fun example of how it could be used. This pen is a tribute to the Brady Bunch opening sequence.",
+        },
+        {
+          src: getAssetPath("work/codepen/vertical-swaying-tabs.gif"),
+          alt: "Swaying Vertical Tabs",
+          caption:
+            "Vertical tabs with a gentle breeze animation, creating an organic overlapping effect during the peak of their respective sway.",
+        },
+      ],
+    },
+    {
       title: "Custom Blog Integration",
       icon: (
         <svg className="logo" style={{ width: 22, height: 24 }}>
