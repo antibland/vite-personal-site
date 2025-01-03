@@ -5,14 +5,32 @@
     <title>Redirecting...</title>
     <script>
       // Get the current path and query string
-      const path = window.location.pathname.slice(1);
+      const path = window.location.pathname;
       const query = window.location.search;
 
-      // Encode the path to preserve special characters
-      const encodedPath = encodeURIComponent(`/${path}${query}`);
+      // Function to check if a path matches our SPA routes pattern
+      function isValidRoute(path) {
+        // Root path is valid
+        if (path === "/") return true;
 
-      // Redirect to the main page with the path as a parameter
-      window.location.href = `/?p=${encodedPath}`;
+        // Match patterns like /blog, /work, /skills, /contact
+        if (/^\/(?:blog|work|skills|contact)$/.test(path)) return true;
+
+        // Match dynamic routes like /post/[slug] or /tag/[tag]
+        if (/^\/post\/[^/]+$/.test(path) || /^\/tag\/[^/]+$/.test(path))
+          return true;
+
+        return false;
+      }
+
+      if (isValidRoute(path)) {
+        // If it's a valid route, just go there directly
+        window.location.href = path + query;
+      } else {
+        // If it's not a valid route, handle it as a 404
+        const encodedPath = encodeURIComponent(path + query);
+        window.location.href = `/?p=${encodedPath}`;
+      }
     </script>
   </head>
   <body>
