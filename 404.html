@@ -8,14 +8,11 @@
       const path = window.location.pathname.slice(1);
       const query = window.location.search;
 
-      // Remove /vite-personal-site from the beginning if it exists
-      const cleanPath = path.replace(/^vite-personal-site\//, "");
-
       // Encode the path to preserve special characters
-      const encodedPath = encodeURIComponent(`/${cleanPath}${query}`);
+      const encodedPath = encodeURIComponent(`/${path}${query}`);
 
       // Redirect to the main page with the path as a parameter
-      window.location.href = `/vite-personal-site/?p=${encodedPath}`;
+      window.location.href = `/?p=${encodedPath}`;
     </script>
   </head>
   <body>
