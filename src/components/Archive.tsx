@@ -12,6 +12,7 @@ interface Post {
   category?: string;
   featured?: boolean;
   draft?: boolean;
+  image?: string;
 }
 
 interface MDXModule {
@@ -50,12 +51,21 @@ const Archive: React.FC = () => {
   return posts.length > 0 ? (
     <div className="posts">
       {posts.map((post) => (
-        <article key={post.slug}>
-          <Link to={`/post/${post.slug}`} className="post-title">
-            <h2>{post.title}</h2>
-          </Link>
-          <time>{post.date}</time>
-          {post.description && <p>{post.description}</p>}
+        <article key={post.slug} className="archive-post-grid">
+          {post.image && (
+            <figure className="archive-post-image">
+              <img src={`/posts/${post.image}`} alt={post.title} />
+            </figure>
+          )}
+          <div
+            className={`archive-post-content ${!post.image ? "no-image" : ""}`}
+          >
+            <Link to={`/post/${post.slug}`} className="post-title">
+              <h2>{post.title}</h2>
+            </Link>
+            <time>{post.date}</time>
+            {post.description && <p>{post.description}</p>}
+          </div>
         </article>
       ))}
     </div>
