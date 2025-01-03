@@ -27,7 +27,7 @@ const Layout: React.FC = () => {
           </>
         )}
         <h1 className="site-title">
-          <Link to="/">
+          <Link to="/" aria-label="Link to home">
             <svg className="logo">
               <use
                 xlinkHref={

@@ -18,6 +18,13 @@ Anyone who has worked on a web application with a navigation section has probabl
     src="https://github.com/user-attachments/assets/295ae178-e717-48d7-a4f2-20eac03d82ff"
     type="video/mp4"
   />
+  <track
+    kind="captions"
+    label="English"
+    src="/captions/active-nav-demo.vtt"
+    srcLang="en"
+    default
+  />
   Your browser does not support the video tag.
 </video>
 
@@ -43,7 +50,7 @@ It seems pretty straightforward, but it's not without a major drawback. Next is 
 
 > The functional :has() CSS pseudo-class represents an element if any of the relative selectors that are passed as an argument match at least one element when anchored against this element. This pseudo-class presents a way of selecting a parent element or a previous sibling element with respect to a reference element by taking a relative selector list as an argument.
 
-My mental model of `:has()` is somewhat crude but more concise.
+My mental model of `:has()` is maybe a little crude, but more concise.
 
 > 1. Establish a parent.
 > 2. Find a selector/condition within the parent's children.
