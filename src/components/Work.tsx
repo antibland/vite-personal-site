@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useRef, useEffect } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import * as SimpleIcons from "simple-icons";
 
@@ -41,6 +41,17 @@ const getIconByName = (name: string) => {
 const Work: React.FC = () => {
   const dialogRefs = useRef<(HTMLDialogElement | null)[]>([]);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    // Set random rotations for each image in the stack
+    const root = document.documentElement;
+    for (let i = 1; i <= 5; i++) {
+      // Alternate between negative and positive angles for a natural look
+      const isNegative = i % 2 === 1;
+      const randomAngle = (Math.random() * 6 + 2) * (isNegative ? -1 : 1);
+      root.style.setProperty(`--stack-rotation-${i}`, `${randomAngle}deg`);
+    }
+  }, []);
 
   const handleStackClick = (index: number) => {
     const dialog = dialogRefs.current[index];
