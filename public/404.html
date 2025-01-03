@@ -2,38 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Redirecting...</title>
-    <script>
-      // Get the current path and query string
-      const path = window.location.pathname;
-      const query = window.location.search;
-
-      // Function to check if a path matches our SPA routes pattern
-      function isValidRoute(path) {
-        // Root path is valid
-        if (path === "/") return true;
-
-        // Match patterns like /blog, /work, /skills, /contact
-        if (/^\/(?:blog|work|skills|contact)$/.test(path)) return true;
-
-        // Match dynamic routes like /post/[slug] or /tag/[tag]
-        if (/^\/post\/[^/]+$/.test(path) || /^\/tag\/[^/]+$/.test(path))
-          return true;
-
-        return false;
-      }
-
-      if (isValidRoute(path)) {
-        // If it's a valid route, just go there directly
-        window.location.href = path + query;
-      } else {
-        // If it's not a valid route, handle it as a 404
-        const encodedPath = encodeURIComponent(path + query);
-        window.location.href = `/?p=${encodedPath}`;
-      }
-    </script>
+    <title>Andy Hoffman dot codes</title>
+    <meta http-equiv="refresh" content="0;url=/" />
   </head>
-  <body>
-    Redirecting...
-  </body>
 </html>

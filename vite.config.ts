@@ -26,4 +26,14 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react/jsx-runtime"],
   },
+  build: {
+    outDir: "dist",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom", "react-router-dom"],
+        },
+      },
+    },
+  },
 });
