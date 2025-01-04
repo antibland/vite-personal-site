@@ -98,6 +98,7 @@ const TagPosts: React.FC = () => {
               <Link
                 to={`/post/${post.slug}`}
                 style={{
+                  color: "var(--primary-color)",
                   fontSize: "1.2rem",
                   textDecoration: "none",
                   fontWeight: "bold",
@@ -124,7 +125,10 @@ const TagPosts: React.FC = () => {
           </li>
         ))}
       </ul>
-      <Link to="/blog" style={{ textDecoration: "none" }}>
+      <Link
+        to="/blog"
+        style={{ textDecoration: "none", color: "var(--primary-color)" }}
+      >
         ← Back to all posts
       </Link>
     </div>

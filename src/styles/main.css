@@ -892,6 +892,8 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
     max-height: 90vh;
     overflow-y: auto;
     overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color-muted) var(--bg-color);
   }
 
   .dialog-header {
