@@ -223,23 +223,32 @@ const Work: React.FC = () => {
                     className="project-images-stack"
                     onClick={() => handleStackClick(index)}
                     aria-label={`View all ${project.title} images`}
+                    aria-controls={`project-dialog-${index}`}
                   >
-                    {project.images.map((image, imgIndex) => (
-                      <div key={imgIndex} className="project-image-wrapper">
-                        <img
-                          className="project-image"
-                          src={image.src}
-                          alt={image.alt}
-                        />
-                        {imgIndex === 0 && (
-                          <div className="project-image-caption">
-                            View all product images
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                    {project.images.map((image, imgIndex) => {
+                      const numImages = project.images
+                        ? project.images.length
+                        : 0;
+                      return (
+                        <div key={imgIndex} className="project-image-wrapper">
+                          <img
+                            className="project-image"
+                            src={image.src}
+                            alt={image.alt}
+                          />
+                          {imgIndex === 0 && (
+                            <div className="project-image-caption">
+                              {numImages === 1 && "View image"}
+                              {numImages > 1 &&
+                                `View all ${numImages} project images`}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </button>
                   <dialog
+                    id={`project-dialog-${index}`}
                     ref={(el) => (dialogRefs.current[index] = el)}
                     className="project-dialog"
                     onCancel={(e) => {
