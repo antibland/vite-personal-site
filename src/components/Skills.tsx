@@ -27,7 +27,7 @@ const getIconSlug = (name: string): string => {
     MongoDB: "mongodb",
     PostgreSQL: "postgresql",
     Redis: "redis",
-    Wagmi: "ethereum", // Using Ethereum icon as Wagmi is blockchain-related
+    Wagmi: "wagmi", // Using Ethereum icon as Wagmi is blockchain-related
     SQL: "mysql", // Using MySQL icon as a general SQL representation
   };
 
