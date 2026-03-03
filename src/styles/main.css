@@ -920,6 +920,7 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
   }
 
   .dialog-close {
+    overflow: hidden;
     border: none;
     background: none;
     font-size: var(--text-2xl);
