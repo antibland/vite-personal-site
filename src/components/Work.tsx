@@ -13,6 +13,11 @@ interface Project {
     alt: string;
     caption: string;
   }>;
+  videos?: Array<{
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
 }
 
 const getIconSlug = (name: string): string => {
@@ -26,7 +31,7 @@ const getIconSlug = (name: string): string => {
     Vite: "vite",
     MDX: "mdx",
     CSS: "css3",
-    Wagmi: "ethereum", // Using Ethereum icon as Wagmi is blockchain-related
+    Wagmi: "wagmi",
   };
 
   return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
@@ -95,8 +100,22 @@ const Work: React.FC = () => {
       ),
       description:
         "Fabrica brings physical land onchain, and allows you to buy, sell, borrow againsg it, and trade it. As the only front end developer on the team, I'm responsible for the entire user experience.",
-      technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Wagmi"],
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Wagmi",
+        "Motion",
+      ],
       link: "https://fabrica.land/",
+      videos: [
+        {
+          src: getAssetPath("work/fabrica/flip.mov"),
+          alt: "Credit history flip animation",
+          caption: "Credit history flip animation",
+        },
+      ],
       images: [
         {
           src: getAssetPath("work/fabrica/1.webp"),
@@ -227,12 +246,12 @@ const Work: React.FC = () => {
                     ref={(el) => (buttonRefs.current[index] = el)}
                     className="project-images-stack"
                     onClick={() => handleStackClick(index)}
-                    aria-label={`View all ${project.title} images`}
+                    aria-label={`View all ${project.title} assets`}
                     aria-controls={`project-dialog-${index}`}
                   >
                     {project.images.map((image, imgIndex) => {
-                      const numImages = project.images
-                        ? project.images.length
+                      const numAssets = project.images
+                        ? project.images.length + (project.videos?.length || 0)
                         : 0;
                       return (
                         <div key={imgIndex} className="project-image-wrapper">
@@ -243,9 +262,9 @@ const Work: React.FC = () => {
                           />
                           {imgIndex === 0 && (
                             <div className="project-image-caption">
-                              {numImages === 1 && "View image"}
-                              {numImages > 1 &&
-                                `View all ${numImages} project images`}
+                              {numAssets === 1 && "View asset(s)"}
+                              {numAssets > 1 &&
+                                `View all ${numAssets} project assets`}
                             </div>
                           )}
                         </div>
@@ -268,7 +287,7 @@ const Work: React.FC = () => {
                   >
                     <div className="dialog-content">
                       <header className="dialog-header">
-                        <h2 className="dialog-title">{project.title} Images</h2>
+                        <h2 className="dialog-title">{project.title} Assets</h2>
                         <button
                           className="dialog-close"
                           onClick={(e) =>
@@ -282,12 +301,27 @@ const Work: React.FC = () => {
                         </button>
                       </header>
                       <div className="dialog-body">
-                        {project.images.map((image, imgIndex) => (
-                          <figure key={imgIndex}>
-                            <img src={image.src} alt={image.alt} />
-                            <figcaption>{image.caption}</figcaption>
-                          </figure>
-                        ))}
+                        {project.videos &&
+                          project.videos?.length > 0 &&
+                          project.videos?.map((video, videoIndex) => (
+                            <figure key={`video-${videoIndex}`}>
+                              <video
+                                src={video.src}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                              />
+                              <figcaption>{video.caption}</figcaption>
+                            </figure>
+                          ))}
+                        {project.images?.length > 0 &&
+                          project.images?.map((image, imgIndex) => (
+                            <figure key={imgIndex}>
+                              <img src={image.src} alt={image.alt} />
+                              <figcaption>{image.caption}</figcaption>
+                            </figure>
+                          ))}
                       </div>
                     </div>
                   </dialog>
