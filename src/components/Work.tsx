@@ -100,18 +100,23 @@ const Work: React.FC = () => {
       images: [
         {
           src: getAssetPath("work/fabrica/1.webp"),
+          alt: "List for sale modal",
+          caption: "Clear and concise list for sale modal",
+        },
+        {
+          src: getAssetPath("work/fabrica/2.webp"),
+          alt: "Blockchain interactions that make sense to everyone",
+          caption: "Blockchain interactions that make sense to everyone",
+        },
+        {
+          src: getAssetPath("work/fabrica/3.webp"),
           alt: "Marketplace land purchase options",
           caption: "Marketplace land purchase made easy",
         },
         {
-          src: getAssetPath("work/fabrica/2.webp"),
-          alt: "Onchain social profile header",
-          caption: "Onchain social profile header",
-        },
-        {
-          src: getAssetPath("work/fabrica/3.webp"),
-          alt: "Beautiful, expressive profile pages",
-          caption: "Beautiful, expressive profile pages",
+          src: getAssetPath("work/fabrica/4.webp"),
+          alt: "Expressive profile activity feeds",
+          caption: "Expressive profile activity feeds",
         },
       ],
     },
@@ -268,7 +273,7 @@ const Work: React.FC = () => {
                           className="dialog-close"
                           onClick={(e) =>
                             handleDialogClose(
-                              e.currentTarget.closest("dialog")!
+                              e.currentTarget.closest("dialog")!,
                             )
                           }
                           aria-label="Close dialog"
