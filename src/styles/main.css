@@ -766,10 +766,6 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
     gap: 1rem;
   }
 
-  .projects {
-    grid-template-columns: 1fr;
-  }
-
   .skills-grid {
     grid-template-columns: 1fr;
   }
