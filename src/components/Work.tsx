@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useEffect } from "react";
+import { ReactNode, useRef, useEffect } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import * as SimpleIcons from "simple-icons";
 
@@ -43,19 +43,34 @@ const getIconByName = (name: string) => {
   return (SimpleIcons as any)[iconKey];
 };
 
-const Work: React.FC = () => {
+const Work = () => {
   const dialogRefs = useRef<(HTMLDialogElement | null)[]>([]);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Set random rotations for each image in the stack
     const root = document.documentElement;
+
+    // Set random rotations immediately
     for (let i = 1; i <= 5; i++) {
-      // Alternate between negative and positive angles for a natural look
       const isNegative = i % 2 === 1;
       const randomAngle = (Math.random() * 6 + 2) * (isNegative ? -1 : 1);
       root.style.setProperty(`--stack-rotation-${i}`, `${randomAngle}deg`);
     }
+
+    // Enable animations after a delay to let ViewTransition complete
+    const timer = setTimeout(() => {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("work-ready");
+      }
+    }, 650); // 600ms transition + 50ms buffer
+
+    return () => {
+      clearTimeout(timer);
+      if (sectionRef.current) {
+        sectionRef.current.classList.remove("work-ready");
+      }
+    };
   }, []);
 
   const handleStackClick = (index: number) => {
@@ -228,7 +243,7 @@ const Work: React.FC = () => {
   ];
 
   return (
-    <div className="section">
+    <div ref={sectionRef} className="section">
       <h1>My Work</h1>
       <div className="content">
         <div className="projects">
@@ -243,7 +258,9 @@ const Work: React.FC = () => {
               {project.images && (
                 <>
                   <button
-                    ref={(el) => (buttonRefs.current[index] = el)}
+                    ref={(el) => {
+                      buttonRefs.current[index] = el;
+                    }}
                     className="project-images-stack"
                     onClick={() => handleStackClick(index)}
                     aria-label={`View all ${project.title} assets`}
@@ -273,7 +290,9 @@ const Work: React.FC = () => {
                   </button>
                   <dialog
                     id={`project-dialog-${index}`}
-                    ref={(el) => (dialogRefs.current[index] = el)}
+                    ref={(el) => {
+                      dialogRefs.current[index] = el;
+                    }}
                     className="project-dialog"
                     onCancel={(e) => {
                       e.preventDefault();

@@ -18,11 +18,11 @@ Creating a simple Node.js application container:
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && pnpm install --frozen-lockfile
 COPY . .
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
 ```
 
 ## Docker Compose

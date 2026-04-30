@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ViewTransition } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import * as SimpleIcons from "simple-icons";
 
@@ -7,29 +7,31 @@ const About: FC = () => {
     <div className="section about-section">
       <div className="about-container">
         <div className="about-main">
-          <img
-            src={getAssetPath("andy-profile-scarf.webp")}
-            srcSet={`${getAssetPath(
-              "andy-profile-scarf.webp"
-            )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
-            sizes="(max-width: 800px) 100vw, 515px"
-            alt="Andy Hoffman"
-            width="515"
-            height="344"
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-            className="priority-image"
-            style={{
-              objectFit: "cover",
-              borderRadius: "8px",
-              width: "100%",
-              maxWidth: "800px",
-              height: "auto",
-              display: "block",
-              contentVisibility: "auto",
-            }}
-          />
+          <ViewTransition name="profile-image">
+            <img
+              src={getAssetPath("andy-profile-scarf.webp")}
+              srcSet={`${getAssetPath(
+                "andy-profile-scarf.webp"
+              )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+              sizes="(max-width: 800px) 100vw, 515px"
+              alt="Andy Hoffman"
+              width="515"
+              height="344"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+              className="priority-image"
+              style={{
+                objectFit: "cover",
+                borderRadius: "8px",
+                width: "100%",
+                maxWidth: "800px",
+                height: "auto",
+                display: "block",
+                contentVisibility: "auto",
+              }}
+            />
+          </ViewTransition>
           <div className="text-content">
             <h1>👋 Internet</h1>
             <p style={{ fontSize: "var(--text-lg)" }}>

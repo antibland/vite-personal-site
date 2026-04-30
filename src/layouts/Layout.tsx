@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
+import { ViewTransition } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import "../styles/reset.css";
 import "../styles/main.css";
@@ -26,26 +27,65 @@ const Layout: React.FC = () => {
             <meta name="priority-hints" content="highest" />
           </>
         )}
-        <h1 className="site-title">
-          <Link to="/" aria-label="Link to home">
-            <svg className="logo">
-              <use
-                xlinkHref={
-                  getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"
-                }
+        <div className="header-left">
+          <h1 className="site-title">
+            <Link
+              to="/"
+              aria-label="Link to home"
+              viewTransition
+            >
+              <svg className="logo">
+                <use
+                  xlinkHref={
+                    getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"
+                  }
+                />
+              </svg>
+            </Link>
+          </h1>
+          {location.pathname !== "/" && (
+            <ViewTransition
+              name="profile-image"
+              default="header-profile-image"
+            >
+              <img
+                src={getAssetPath("andy-profile-scarf.webp")}
+                srcSet={`${getAssetPath(
+                  "andy-profile-scarf.webp"
+                )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+                sizes="32px"
+                alt="Andy Hoffman"
+                width="32"
+                height="32"
+                className="header-avatar"
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "4px",
+                  width: "2rem",
+                  height: "2rem",
+                  display: "block",
+                }}
               />
-            </svg>
-          </Link>
-        </h1>
+            </ViewTransition>
+          )}
+        </div>
         <nav className="main-nav">
           <ul>
             <li>
-              <Link to="/" className={isActive("/") ? "active" : ""}>
+              <Link
+                to="/"
+                className={isActive("/") ? "active" : ""}
+                viewTransition
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link to="/work" className={isActive("/work") ? "active" : ""}>
+              <Link
+                to="/work"
+                className={isActive("/work") ? "active" : ""}
+                viewTransition
+              >
                 Work
               </Link>
             </li>
@@ -53,12 +93,17 @@ const Layout: React.FC = () => {
               <Link
                 to="/skills"
                 className={isActive("/skills") ? "active" : ""}
+                viewTransition
               >
                 Skills
               </Link>
             </li>
             <li>
-              <Link to="/blog" className={isActive("/blog") ? "active" : ""}>
+              <Link
+                to="/blog"
+                className={isActive("/blog") ? "active" : ""}
+                viewTransition
+              >
                 Blog
               </Link>
             </li>
@@ -66,6 +111,7 @@ const Layout: React.FC = () => {
               <Link
                 to="/contact"
                 className={isActive("/contact") ? "active" : ""}
+                viewTransition
               >
                 Contact
               </Link>
