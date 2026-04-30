@@ -1,5 +1,4 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { ViewTransition } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import "../styles/reset.css";
 import "../styles/main.css";
@@ -22,7 +21,6 @@ const Layout: React.FC = () => {
               )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
               imageSizes="(max-width: 800px) 100vw, 800px"
               type="image/webp"
-              fetchPriority="high"
             />
             <meta name="priority-hints" content="highest" />
           </>
@@ -44,29 +42,24 @@ const Layout: React.FC = () => {
             </Link>
           </h1>
           {location.pathname !== "/" && (
-            <ViewTransition
-              name="profile-image"
-              default="header-profile-image"
-            >
-              <img
-                src={getAssetPath("andy-profile-scarf.webp")}
-                srcSet={`${getAssetPath(
-                  "andy-profile-scarf.webp"
-                )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
-                sizes="32px"
-                alt="Andy Hoffman"
-                width="32"
-                height="32"
-                className="header-avatar"
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "4px",
-                  width: "2rem",
-                  height: "2rem",
-                  display: "block",
-                }}
-              />
-            </ViewTransition>
+            <img
+              src={getAssetPath("andy-profile-scarf.webp")}
+              srcSet={`${getAssetPath(
+                "andy-profile-scarf.webp"
+              )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+              sizes="32px"
+              alt="Andy Hoffman"
+              width="32"
+              height="32"
+              className="header-avatar"
+              style={{
+                objectFit: "cover",
+                borderRadius: "4px",
+                width: "2rem",
+                height: "2rem",
+                display: "block",
+              }}
+            />
           )}
         </div>
         <nav className="main-nav">

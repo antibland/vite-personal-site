@@ -1066,6 +1066,12 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
 .header-avatar {
   border-radius: 4px;
   object-fit: cover;
+  view-transition-name: profile-image;
+}
+
+/* Homepage hero image participates in the same shared transition */
+.priority-image {
+  view-transition-name: profile-image;
 }
 
 /* View Transition animations for profile image */
