@@ -1,0 +1,19 @@
+# Root workspace: required so pnpm reads dependency-resolution and security
+# settings from this file (see https://pnpm.io/settings).
+packages:
+  - '.'
+
+# Supply-chain: only install versions published at least this many minutes ago.
+# Seven days = 7 * 24 * 60 minutes.
+minimumReleaseAge: 10080
+# Icons release often; allow newest simple-icons before the 7-day window.
+minimumReleaseAgeExclude:
+  - simple-icons
+
+# Disallow transitive deps from git URLs or tarball URLs; only direct deps may.
+blockExoticSubdeps: true
+
+# Lifecycle scripts (e.g. postinstall) run only for these package names.
+# Keep this list minimal; add entries if `pnpm install` reports blocked builds.
+onlyBuiltDependencies:
+  - esbuild

@@ -1,6 +1,7 @@
 import { ReactNode, useRef, useEffect } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import * as SimpleIcons from "simple-icons";
+import type { SimpleIcon } from "simple-icons";
 
 interface Project {
   title: string;
@@ -37,10 +38,11 @@ const getIconSlug = (name: string): string => {
   return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
 };
 
-const getIconByName = (name: string) => {
+const getIconByName = (name: string): SimpleIcon | undefined => {
   const slug = getIconSlug(name);
   const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-  return (SimpleIcons as any)[iconKey];
+  const icons = SimpleIcons as Record<string, SimpleIcon>;
+  return icons[iconKey];
 };
 
 const Work = () => {
@@ -59,17 +61,15 @@ const Work = () => {
     }
 
     // Enable animations after a delay to let ViewTransition complete
+    let sectionEl: HTMLDivElement | null = null;
     const timer = setTimeout(() => {
-      if (sectionRef.current) {
-        sectionRef.current.classList.add("work-ready");
-      }
+      sectionEl = sectionRef.current;
+      sectionEl?.classList.add("work-ready");
     }, 650); // 600ms transition + 50ms buffer
 
     return () => {
       clearTimeout(timer);
-      if (sectionRef.current) {
-        sectionRef.current.classList.remove("work-ready");
-      }
+      sectionEl?.classList.remove("work-ready");
     };
   }, []);
 

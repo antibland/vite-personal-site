@@ -12,14 +12,14 @@ import App from "./App";
 if (import.meta.env.DEV) {
   window.addEventListener("unhandledrejection", (event) => {
     const reason = event.reason as unknown;
+    const err =
+      typeof reason === "object" && reason !== null
+        ? (reason as { name?: unknown; message?: unknown })
+        : null;
     const name =
-      typeof reason === "object" && reason && "name" in reason
-        ? String((reason as any).name)
-        : "";
+      err && typeof err.name === "string" ? err.name : "";
     const message =
-      typeof reason === "object" && reason && "message" in reason
-        ? String((reason as any).message)
-        : "";
+      err && typeof err.message === "string" ? err.message : "";
 
     if (name === "AbortError" && /view transition/i.test(message)) {
       event.preventDefault();

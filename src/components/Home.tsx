@@ -1,19 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
 
-interface Post {
-  title: string;
-  date: string;
-  slug: string;
-  description?: string;
-  author?: string;
-  readingTime?: number;
-  tags?: string[];
-  category?: string;
-  featured?: boolean;
-  draft?: boolean;
-}
-
 interface MDXModule {
   frontmatter: {
     title: string;

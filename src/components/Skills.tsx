@@ -1,5 +1,6 @@
 import React from "react";
 import * as SimpleIcons from "simple-icons";
+import type { SimpleIcon } from "simple-icons";
 
 interface SkillCategory {
   name: string;
@@ -37,10 +38,11 @@ const getIconSlug = (name: string): string => {
   return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
 };
 
-const getIconByName = (name: string) => {
+const getIconByName = (name: string): SimpleIcon | undefined => {
   const slug = getIconSlug(name);
   const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-  return (SimpleIcons as any)[iconKey];
+  const icons = SimpleIcons as Record<string, SimpleIcon>;
+  return icons[iconKey];
 };
 
 const Skills: React.FC = () => {

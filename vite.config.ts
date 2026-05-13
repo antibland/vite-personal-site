@@ -30,8 +30,15 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ["react", "react-dom", "react-router-dom"],
+        // Vite 8 (Rolldown) expects a function here, not the Rollup object shorthand.
+        manualChunks(id) {
+          if (
+            /[/\\]node_modules[/\\](?:react|react-dom|react-router-dom)(?:[/\\]|$)/.test(
+              id
+            )
+          ) {
+            return "react";
+          }
         },
       },
     },
