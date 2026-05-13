@@ -10,13 +10,15 @@ interface SkillCategory {
 }
 
 const getIconSlug = (name: string): string => {
-  // Convert common names to their simple-icons slug
   const nameMap: { [key: string]: string } = {
     React: "react",
     TypeScript: "typescript",
     JavaScript: "javascript",
     WCAG: "wcag",
     HTML5: "html5",
+    Claude: "claude",
+    Cursor: "cursor",
+    GPT: "openai",
     "Modern CSS": "css3",
     Tailwind: "tailwindcss",
     "Next.js": "nextdotjs",
@@ -27,8 +29,9 @@ const getIconSlug = (name: string): string => {
     MongoDB: "mongodb",
     PostgreSQL: "postgresql",
     Redis: "redis",
-    Wagmi: "wagmi", // Using Ethereum icon as Wagmi is blockchain-related
-    SQL: "mysql", // Using MySQL icon as a general SQL representation
+    Shadcn: "shadcnui",
+    Wagmi: "wagmi",
+    SQL: "mysql",
   };
 
   return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
@@ -59,6 +62,10 @@ const Skills: React.FC = () => {
       ],
     },
     {
+      name: "AI Development",
+      skills: [{ name: "Claude" }, { name: "Cursor" }, { name: "GPT" }],
+    },
+    {
       name: "Backend Development",
       skills: [
         { name: "Node.js" },
@@ -70,14 +77,13 @@ const Skills: React.FC = () => {
       name: "Tools & Technologies",
       skills: [
         { name: "Git" },
-        { name: "Cursor" },
         { name: "Docker" },
         { name: "CI/CD" },
         { name: "Figma" },
       ],
     },
     {
-      name: "Database Technologies",
+      name: "DBs",
       skills: [
         { name: "SQL" },
         { name: "Redis" },

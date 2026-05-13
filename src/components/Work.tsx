@@ -120,6 +120,7 @@ const Work = () => {
         "Next.js",
         "TypeScript",
         "TailwindCSS",
+        "Claude",
         "Wagmi",
         "Motion",
       ],
