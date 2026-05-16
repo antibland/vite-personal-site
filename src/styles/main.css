@@ -698,7 +698,11 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
   padding: var(--space-4);
   border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--border-color) 55%, transparent);
-  background-color: color-mix(in srgb, var(--primary-color) 6%, var(--bg-color));
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 6%,
+    var(--bg-color)
+  );
 }
 
 .skill-category h3 {
@@ -764,6 +768,28 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
   flex-shrink: 0;
 }
 
+/* Contact page: profile image shares view-transition-name with home hero */
+.contact-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-heading-row h1 {
+  margin: 0;
+}
+
+.contact-heading-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
 /* Contact Form */
 .contact-form {
   margin: 0 auto;
@@ -820,7 +846,6 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
   padding: 1rem 0;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .main-header {
     flex-direction: column;

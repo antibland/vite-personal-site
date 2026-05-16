@@ -1,9 +1,25 @@
 import React from "react";
+import { getAssetPath } from "../utils/assetPath";
 
 const Contact: React.FC = () => {
   return (
-    <div className="section">
-      <h1>Contact Me</h1>
+    <div className="section contact-section">
+      <div className="contact-heading-row">
+        <img
+          src={getAssetPath("andy-profile-scarf.webp")}
+          srcSet={`${getAssetPath(
+            "andy-profile-scarf.webp"
+          )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
+          sizes="64px"
+          alt="Andy Hoffman"
+          width="64"
+          height="64"
+          loading="eager"
+          decoding="async"
+          className="priority-image contact-heading-avatar"
+        />
+        <h1>Contact Me</h1>
+      </div>
       <div className="content">
         <form
           action="https://formspree.io/f/antibland@gmail.com"

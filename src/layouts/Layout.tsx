@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
   return (
     <div className="container">
       <header className="main-header">
-        {location.pathname === "/" && (
+        {(location.pathname === "/" || location.pathname === "/contact") && (
           <>
             <link
               rel="preload"
@@ -19,10 +19,16 @@ const Layout: React.FC = () => {
               imageSrcSet={`${getAssetPath(
                 "andy-profile-scarf.webp"
               )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
-              imageSizes="(max-width: 800px) 100vw, 800px"
+              imageSizes={
+                location.pathname === "/"
+                  ? "(max-width: 800px) 100vw, 800px"
+                  : "64px"
+              }
               type="image/webp"
             />
-            <meta name="priority-hints" content="highest" />
+            {location.pathname === "/" && (
+              <meta name="priority-hints" content="highest" />
+            )}
           </>
         )}
         <div className="header-left">
@@ -41,7 +47,7 @@ const Layout: React.FC = () => {
               </svg>
             </Link>
           </h1>
-          {location.pathname !== "/" && (
+          {location.pathname !== "/" && location.pathname !== "/contact" && (
             <img
               src={getAssetPath("andy-profile-scarf.webp")}
               srcSet={`${getAssetPath(
