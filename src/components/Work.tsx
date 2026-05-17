@@ -156,6 +156,55 @@ const Work = () => {
       ],
     },
     {
+      title: "Better Do It",
+      icon: (
+        <img
+          src={getAssetPath("icons/better-do-it-favicon.png")}
+          alt="Better Do It logo"
+          width={24}
+          height={24}
+        />
+      ),
+      description:
+        "Better Do It is an AI-driven side project that encourages accountability by sharing progress among friends. It features AI task suggestions based on local weather, a custom comment system, advanced accessibility, drag and drop, and easy sign-in via Google authentication.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "TailwindCSS",
+        "Claude",
+        "SQL",
+      ],
+      link: "https://better-do-it.com",
+      images: [
+        {
+          src: getAssetPath("work/better-do-it/1.webp"),
+          alt: "Clean, fast, mobile-friendly UI",
+          caption: "Clean, fast, mobile-friendly UI",
+        },
+        {
+          src: getAssetPath("work/better-do-it/2.webp"),
+          alt: "Easy sign-in with Google authentication",
+          caption: "Easy sign-in with Google authentication",
+        },
+        {
+          src: getAssetPath("work/better-do-it/3.webp"),
+          alt: "AI-driven task suggestions based on local weather patterns",
+          caption: "AI-driven task suggestions based on local weather patterns",
+        },
+        {
+          src: getAssetPath("work/better-do-it/4.webp"),
+          alt: "Accessible, modern drag and drop",
+          caption: "Accessible, modern drag and drop",
+        },
+        {
+          src: getAssetPath("work/better-do-it/5.webp"),
+          alt: "Hand-rolled comment system",
+          caption: "Hand-rolled comment system",
+        },
+      ],
+    },
+    {
       title: "CodePen Projects",
       icon: (
         <img
@@ -307,7 +356,7 @@ const Work = () => {
                   >
                     <div className="dialog-content">
                       <header className="dialog-header">
-                        <h2 className="dialog-title">{project.title} Assets</h2>
+                        <h2 className="dialog-title">{project.title}</h2>
                         <button
                           className="dialog-close"
                           onClick={(e) =>
