@@ -205,10 +205,30 @@ const Work = () => {
       ],
     },
     {
+      title: "ImgStacks",
+      icon: (
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          width={24}
+          height={24}
+          fill={`#${SimpleIcons.siSlickpic.hex}`}
+          aria-label="SlickPic"
+        >
+          <path d={SimpleIcons.siSlickpic.path} />
+        </svg>
+      ),
+      description:
+        "ImgStacks is an open-source React component I published for building interactive image stacks with randomized rotation angles for a more organic feel, configurable aspect ratios, and images lazy loaded by default. It includes a modal gallery for full-size images, touch-friendly swipe navigation, dark mode support, smooth animations, and accessible defaults—so you can add polished stacked previews without rebuilding the same UI in every project.",
+      technologies: ["React", "TypeScript", "CSS"],
+      link: "https://github.com/antibland/img-stacks",
+    },
+    {
       title: "CodePen Projects",
       icon: (
         <img
-          src={getAssetPath("icons/codepen-logo-white.png")}
+          src={getAssetPath("icons/codepen-logo-colorful.png")}
           alt="CodePen logo"
           width={20}
           height={20}
