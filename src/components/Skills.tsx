@@ -65,7 +65,13 @@ const Skills: React.FC = () => {
     },
     {
       name: "AI Development",
-      skills: [{ name: "Claude" }, { name: "Cursor" }, { name: "GPT" }],
+      skills: [
+        { name: "Claude" },
+        { name: "Cursor" },
+        { name: "GPT" },
+        { name: "Prompt Engineering" },
+        { name: "Midjourney" },
+      ],
     },
     {
       name: "Backend Development",
