@@ -5,7 +5,6 @@ import "../styles/main.css";
 
 const Layout: React.FC = () => {
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="container">
@@ -17,7 +16,7 @@ const Layout: React.FC = () => {
               as="image"
               href={getAssetPath("andy-profile-scarf.webp")}
               imageSrcSet={`${getAssetPath(
-                "andy-profile-scarf.webp"
+                "andy-profile-scarf.webp",
               )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
               imageSizes={
                 location.pathname === "/"
@@ -33,11 +32,7 @@ const Layout: React.FC = () => {
         )}
         <div className="header-left">
           <h1 className="site-title">
-            <Link
-              to="/"
-              aria-label="Link to home"
-              viewTransition
-            >
+            <Link to="/" aria-label="Link to home" viewTransition>
               <svg className="logo">
                 <use
                   xlinkHref={
@@ -51,7 +46,7 @@ const Layout: React.FC = () => {
             <img
               src={getAssetPath("andy-profile-scarf.webp")}
               srcSet={`${getAssetPath(
-                "andy-profile-scarf.webp"
+                "andy-profile-scarf.webp",
               )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
               sizes="32px"
               alt="Andy Hoffman"
@@ -71,47 +66,27 @@ const Layout: React.FC = () => {
         <nav className="main-nav">
           <ul>
             <li>
-              <Link
-                to="/"
-                className={isActive("/") ? "active" : ""}
-                viewTransition
-              >
+              <Link to="/" viewTransition>
                 About
               </Link>
             </li>
             <li>
-              <Link
-                to="/work"
-                className={isActive("/work") ? "active" : ""}
-                viewTransition
-              >
+              <Link to="/work" viewTransition>
                 Work
               </Link>
             </li>
             <li>
-              <Link
-                to="/skills"
-                className={isActive("/skills") ? "active" : ""}
-                viewTransition
-              >
+              <Link to="/skills" viewTransition>
                 Skills
               </Link>
             </li>
             <li>
-              <Link
-                to="/blog"
-                className={isActive("/blog") ? "active" : ""}
-                viewTransition
-              >
+              <Link to="/blog" viewTransition>
                 Blog
               </Link>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className={isActive("/contact") ? "active" : ""}
-                viewTransition
-              >
+              <Link to="/contact" viewTransition>
                 Contact
               </Link>
             </li>

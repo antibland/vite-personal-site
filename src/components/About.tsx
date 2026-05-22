@@ -9,7 +9,7 @@ const CODEPEN_SVG_PATH =
 
 const About: FC = () => {
   return (
-    <div className="section about-section">
+    <div id="home" className="section about-section">
       <div className="about-container">
         <div className="about-main">
           <img

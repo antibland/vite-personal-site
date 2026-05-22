@@ -49,7 +49,7 @@ const Archive: React.FC = () => {
   }, []);
 
   return posts.length > 0 ? (
-    <div className="posts">
+    <div id="blog" className="posts">
       {posts.map((post) => (
         <article key={post.slug}>
           <Link to={`/post/${post.slug}`} className="archive-post-grid">

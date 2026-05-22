@@ -133,7 +133,11 @@ body {
 }
 
 .main-nav a:hover,
-.main-nav a.active {
+:has(#home) .main-nav a[href="/"],
+:has(#work) .main-nav a[href="/work"],
+:has(#skills) .main-nav a[href="/skills"],
+:has(#blog) .main-nav a[href="/blog"],
+:has(#contact) .main-nav a[href="/contact"] {
   color: var(--primary-color);
 }
 

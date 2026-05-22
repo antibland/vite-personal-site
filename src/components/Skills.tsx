@@ -102,7 +102,7 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <div className="section">
+    <div id="skills" className="section">
       <h1>Skills</h1>
       <div className="content">
         <div className="skills-grid">

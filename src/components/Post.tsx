@@ -47,7 +47,7 @@ const Post: React.FC = () => {
   const { frontmatter: fm } = post;
 
   return (
-    <article className="post-content">
+    <article id="blog" className="post-content">
       <header style={{ marginBottom: "2rem" }}>
         <h1 style={{ display: "flex", flexDirection: "column" }}>
           <span>{fm.title}</span>

@@ -70,7 +70,7 @@ const TagPosts: React.FC = () => {
 
   if (posts.length === 0) {
     return (
-      <div>
+      <div id="blog">
         <h2>Tag: {displayTag}</h2>
         <p>No posts found with this tag</p>
         <Link to="/blog" style={{ textDecoration: "none" }}>
@@ -81,7 +81,7 @@ const TagPosts: React.FC = () => {
   }
 
   return (
-    <div>
+    <div id="blog">
       <h2>Posts tagged with "{displayTag}"</h2>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {posts.map((post) => (

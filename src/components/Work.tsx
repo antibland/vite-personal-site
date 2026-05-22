@@ -313,7 +313,7 @@ const Work = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="section">
+    <div id="work" ref={sectionRef} className="section">
       <h1>My Work</h1>
       <div className="content">
         <div className="projects">

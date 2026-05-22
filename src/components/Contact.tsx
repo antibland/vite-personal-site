@@ -3,7 +3,7 @@ import { getAssetPath } from "../utils/assetPath";
 
 const Contact: React.FC = () => {
   return (
-    <div className="section contact-section">
+    <div id="contact" className="section contact-section">
       <div className="contact-heading-row">
         <img
           src={getAssetPath("andy-profile-scarf.webp")}
