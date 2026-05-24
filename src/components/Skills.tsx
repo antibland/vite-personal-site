@@ -70,6 +70,7 @@ const Skills: React.FC = () => {
         { name: "Cursor" },
         { name: "GPT" },
         { name: "Prompt Engineering" },
+        { name: "MCP" },
         { name: "Midjourney" },
       ],
     },
