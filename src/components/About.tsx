@@ -37,7 +37,7 @@ const About: FC = () => {
           />
           <div className="text-content">
             <h1>👋 Internet</h1>
-            <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.55rem)" }}>
+            <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>
               I'm Andy Hoffman, a senior full-stack engineer, front-end expert,
               and team builder. I've led and grown developer teams, shipped
               production software at scale, and made accessibility a first-class
@@ -45,7 +45,7 @@ const About: FC = () => {
               foundation with agentic tooling to work at a level that wasn't
               possible before.
             </p>
-            <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.55rem)" }}>
+            <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>
               I started tinkering on the web in 2000 and never really stopped.
               What drew me in early, clean semantics, honest markup, CSS that
               does exactly what it should, still drives how I work today. The
