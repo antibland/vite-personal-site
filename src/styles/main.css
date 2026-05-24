@@ -948,6 +948,10 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
       "text"
       "sidebar";
   }
+
+  .about-sidebar {
+    padding-block-start: 0;
+  }
 }
 
 .priority-image {
