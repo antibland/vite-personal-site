@@ -69,6 +69,8 @@ const Skills: React.FC = () => {
         { name: "Tailwind" },
         { name: "Shadcn" },
         { name: "Next.js" },
+        { name: "Vercel" },
+        { name: "Motion" },
         { name: "WCAG" },
       ],
     },
