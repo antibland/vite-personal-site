@@ -3,12 +3,12 @@ import { getAssetPath } from "../utils/assetPath";
 
 const Contact: React.FC = () => {
   return (
-    <div id="contact" className="section contact-section">
+    <section id="contact" className="section contact-section">
       <div className="contact-heading-row">
         <img
           src={getAssetPath("andy-profile-scarf.webp")}
           srcSet={`${getAssetPath(
-            "andy-profile-scarf.webp"
+            "andy-profile-scarf.webp",
           )} 800w, ${getAssetPath("andy-profile-scarf@2x.webp")} 1600w`}
           sizes="64px"
           alt="Andy Hoffman"
@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
           decoding="async"
           className="priority-image contact-heading-avatar"
         />
-        <h1>Contact Me</h1>
+        <h1>Let's Talk</h1>
       </div>
       <div className="content">
         <form
@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

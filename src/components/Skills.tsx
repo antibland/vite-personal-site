@@ -48,23 +48,7 @@ const getIconByName = (name: string): SimpleIcon | undefined => {
 const Skills: React.FC = () => {
   const skillCategories: SkillCategory[] = [
     {
-      name: "Frontend Development",
-      skills: [
-        { name: "React" },
-        { name: "TypeScript" },
-        { name: "JavaScript" },
-        { name: "HTML5" },
-        { name: "Modern CSS" },
-        { name: "Tailwind" },
-        { name: "Shadcn" },
-        { name: "Next.js" },
-        { name: "Wagmi" },
-        { name: "Smart Contract Integration" },
-        { name: "WCAG" },
-      ],
-    },
-    {
-      name: "AI Development",
+      name: "AI",
       skills: [
         { name: "Claude" },
         { name: "Cursor" },
@@ -75,11 +59,34 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      name: "Backend Development",
+      name: "Frontend",
+      skills: [
+        { name: "React" },
+        { name: "TypeScript" },
+        { name: "JavaScript" },
+        { name: "HTML5" },
+        { name: "Modern CSS" },
+        { name: "Tailwind" },
+        { name: "Shadcn" },
+        { name: "Next.js" },
+        { name: "WCAG" },
+      ],
+    },
+    {
+      name: "Backend",
       skills: [
         { name: "Node.js" },
         { name: "RESTful APIs" },
         { name: "GraphQL" },
+      ],
+    },
+    {
+      name: "Blockchain",
+      skills: [
+        { name: "Smart Contract Integration" },
+        { name: "Wagmi" },
+        { name: "Viem" },
+        { name: "Transaction Processing" },
       ],
     },
     {
@@ -92,7 +99,7 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      name: "DBs",
+      name: "DB",
       skills: [
         { name: "SQL" },
         { name: "Redis" },
@@ -103,8 +110,7 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <div id="skills" className="section">
-      <h1>Skills</h1>
+    <section id="skills" className="section">
       <div className="content">
         <div className="skills-grid">
           {skillCategories.map((category, index) => (
@@ -135,7 +141,7 @@ const Skills: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

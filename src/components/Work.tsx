@@ -313,8 +313,7 @@ const Work = () => {
   ];
 
   return (
-    <div id="work" ref={sectionRef} className="section">
-      <h1>My Work</h1>
+    <section id="work" ref={sectionRef} className="section">
       <div className="content">
         <div className="projects">
           {projects.map((project, index) => (
@@ -452,7 +451,7 @@ const Work = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
