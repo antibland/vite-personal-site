@@ -859,7 +859,7 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
 .main-footer {
   text-align: center;
   color: var(--text-color-muted);
-  padding: 1rem 0;
+  padding: 1rem 0 2.5rem;
 }
 
 @media (max-width: 768px) {
