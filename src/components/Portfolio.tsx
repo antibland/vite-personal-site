@@ -313,7 +313,7 @@ const Work = () => {
   ];
 
   return (
-    <section id="work" ref={sectionRef} className="section">
+    <section id="portfolio" ref={sectionRef} className="section">
       <div className="content">
         <div className="projects">
           {projects.map((project, index) => (

@@ -4,6 +4,7 @@ import {
   RouterProvider,
   Route,
   createRoutesFromElements,
+  Navigate,
 } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
 import Layout from "./layouts/Layout";
@@ -49,6 +50,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<About />} />
+      <Route path="/work" element={<Navigate to="/portfolio" replace />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/skills" element={<Skills />} />
       <Route path="/blog" element={<Archive />} />

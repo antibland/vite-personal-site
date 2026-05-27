@@ -145,7 +145,7 @@ body {
 
 .main-nav a:hover,
 :has(#home) .main-nav a[href="/"],
-:has(#work) .main-nav a[href="/work"],
+:has(#portfolio) .main-nav a[href="/portfolio"],
 :has(#skills) .main-nav a[href="/skills"],
 :has(#blog) .main-nav a[href="/blog"],
 :has(#contact) .main-nav a[href="/contact"] {
