@@ -38,19 +38,23 @@ const About: FC = () => {
           <div className="text-content">
             <h1>👋 Internet</h1>
             <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>
-              I'm Andy Hoffman, a senior full-stack engineer, front-end expert,
-              and team builder. I've led and grown developer teams, shipped
-              production software at scale, and made accessibility a first-class
-              concern long before it became a talking point. I now combine that
-              foundation with agentic tooling to work at a level that wasn't
-              possible before.
+              I'm Andy Hoffman, a senior full-stack engineer, front-end expert
+              and team builder. I ship well-reviewed, production-ready software
+              at scale and ensure accessibility guidelines are met throughout
+              the development process. I prioritize giving and receiving
+              feedback from my teammates, because a team that communicates well
+              creates a better product. I believe in 10x teams, not 10x
+              engineers.
             </p>
             <p style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>
-              I started tinkering on the web in 2000 and never really stopped.
-              What drew me in early, clean semantics, honest markup, CSS that
-              does exactly what it should, still drives how I work today. The
-              best front-end code is an act of subtraction. Remove everything
-              that doesn't serve the user, and what's left just hums.
+              When I first started tinkering on the web in 2000, I was drawn to
+              the semantic expressiveness of HTML, the ability of well written
+              CSS to transform the look and feel of a web application, and the
+              raw power of JavaScript. The way these technologies are expressed
+              has changed, but the underlying approach remains the same.
+              Front-end engineering is an act of subtraction. Remove everything
+              that doesn't absolutely serve the user, and what remains is the
+              truth.
             </p>
           </div>
         </div>
