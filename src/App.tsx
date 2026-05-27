@@ -8,7 +8,7 @@ import {
 import { MDXProvider } from "@mdx-js/react";
 import Layout from "./layouts/Layout";
 import About from "./components/About";
-import Work from "./components/Work";
+import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Archive from "./components/Archive";
@@ -49,14 +49,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<About />} />
-      <Route path="/work" element={<Work />} />
+      <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/skills" element={<Skills />} />
       <Route path="/blog" element={<Archive />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/post/:slug" element={<Post />} />
       <Route path="/tag/:tag" element={<TagPosts />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 const App: React.FC = () => {

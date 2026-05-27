@@ -71,8 +71,8 @@ const Layout: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/work" viewTransition>
-                Work
+              <Link to="/portfolio" viewTransition>
+                Portfolio
               </Link>
             </li>
             <li>
