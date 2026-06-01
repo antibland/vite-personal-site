@@ -119,6 +119,7 @@ const Work = () => {
         "React",
         "Next.js",
         "TypeScript",
+        "Mapbox",
         "TailwindCSS",
         "Claude",
         "Wagmi",
@@ -130,6 +131,11 @@ const Work = () => {
           src: getAssetPath("work/fabrica/flip.mov"),
           alt: "Credit history flip animation",
           caption: "Credit history flip animation",
+        },
+        {
+          src: getAssetPath("work/fabrica/map-visualization.mp4"),
+          alt: "Mapbox dynamic parcel locator animation",
+          caption: "Mapbox dynamic parcel locator for smoother onboarding",
         },
       ],
       images: [
