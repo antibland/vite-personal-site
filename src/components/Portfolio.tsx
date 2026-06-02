@@ -186,6 +186,39 @@ const Work = () => {
       ],
     },
     {
+      title: "Custom Blog Integration",
+      icon: (
+        <svg className="logo" style={{ width: 22, height: 24 }}>
+          <use
+            xlinkHref={getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"}
+          />
+        </svg>
+      ),
+      description:
+        "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
+      technologies: ["React", "Vite", "TypeScript", "MDX", "Claude"],
+      videos: [
+        {
+          src: getAssetPath("work/custom-blog/view-transition-api.mov"),
+          alt: "View Transition API",
+          caption:
+            "Using the View Transition API to create a smooth transition between pages",
+        },
+        {
+          src: getAssetPath("work/custom-blog/lighthouse-100-percent.mov"),
+          alt: "100 Percent Lighthouse Score",
+          caption: "A perfect Lighthouse score",
+        },
+      ],
+      images: [
+        {
+          src: getAssetPath("work/custom-blog/1.webp"),
+          alt: "Blog post editor with live preview",
+          caption: "Rich markdown editor with live preview",
+        },
+      ],
+    },
+    {
       title: "ImgStacks",
       icon: (
         <svg
@@ -243,36 +276,6 @@ const Work = () => {
           alt: "Swaying Vertical Tabs",
           caption:
             "Vertical tabs with a gentle breeze animation, creating an organic overlapping effect during the peak of their respective sway.",
-        },
-      ],
-    },
-    {
-      title: "Custom Blog Integration",
-      icon: (
-        <svg className="logo" style={{ width: 22, height: 24 }}>
-          <use
-            xlinkHref={getAssetPath("assets/svg-defs.svg") + "?v=2#svg-logo"}
-          />
-        </svg>
-      ),
-      description:
-        "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
-      technologies: ["React", "Vite", "TypeScript", "MDX", "Claude"],
-      images: [
-        {
-          src: getAssetPath("work/custom-blog/1.webp"),
-          alt: "Blog post editor with live preview",
-          caption: "Rich markdown editor with live preview",
-        },
-        {
-          src: getAssetPath("work/custom-blog/2.webp"),
-          alt: "Blog post listing with categories",
-          caption: "Organized post listing with category filtering",
-        },
-        {
-          src: getAssetPath("work/custom-blog/3.webp"),
-          alt: "Code syntax highlighting",
-          caption: "Beautiful code syntax highlighting",
         },
       ],
     },
