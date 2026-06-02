@@ -1,6 +1,11 @@
 import { FC } from "react";
 import { getAssetPath } from "../utils/assetPath";
-import * as SimpleIcons from "simple-icons";
+import {
+  siFiles,
+  siGithub,
+  siStackoverflow,
+  siX,
+} from "../utils/simpleIcons";
 
 // CodePen was removed from simple-icons (no brand permission to redistribute the mark).
 // This path is the CC0 shape previously shipped as `siCodepen` in simple-icons@14.15.0.
@@ -71,7 +76,7 @@ const About: FC = () => {
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
-                <path fill="currentColor" d={SimpleIcons.siGithub.path} />
+                <path fill="currentColor" d={siGithub.path} />
               </svg>
               <span>GitHub</span>
             </a>
@@ -86,7 +91,7 @@ const About: FC = () => {
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
-                <path fill="currentColor" d={SimpleIcons.siX.path} />
+                <path fill="currentColor" d={siX.path} />
               </svg>
               <span>X (Twitter)</span>
             </a>
@@ -118,7 +123,7 @@ const About: FC = () => {
               >
                 <path
                   fill="currentColor"
-                  d={SimpleIcons.siStackoverflow.path}
+                  d={siStackoverflow.path}
                 />
               </svg>
               <span>Stack Overflow</span>
@@ -152,7 +157,7 @@ const About: FC = () => {
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
-                <path fill="currentColor" d={SimpleIcons.siFiles.path} />
+                <path fill="currentColor" d={siFiles.path} />
               </svg>
               <span>Resume (PDF)</span>
             </a>

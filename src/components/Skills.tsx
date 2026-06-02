@@ -1,6 +1,5 @@
 import React from "react";
-import * as SimpleIcons from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
+import { getIconByName } from "../utils/simpleIcons";
 
 interface SkillCategory {
   name: string;
@@ -9,41 +8,6 @@ interface SkillCategory {
     icon?: string;
   }>;
 }
-
-const getIconSlug = (name: string): string => {
-  const nameMap: { [key: string]: string } = {
-    React: "react",
-    TypeScript: "typescript",
-    JavaScript: "javascript",
-    WCAG: "wcag",
-    HTML5: "html5",
-    Claude: "claude",
-    Cursor: "cursor",
-    GPT: "openai",
-    "Modern CSS": "css3",
-    Tailwind: "tailwindcss",
-    "Next.js": "nextdotjs",
-    "Node.js": "nodedotjs",
-    GraphQL: "graphql",
-    Git: "git",
-    Docker: "docker",
-    MongoDB: "mongodb",
-    PostgreSQL: "postgresql",
-    Redis: "redis",
-    Shadcn: "shadcnui",
-    Wagmi: "wagmi",
-    SQL: "mysql",
-  };
-
-  return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
-};
-
-const getIconByName = (name: string): SimpleIcon | undefined => {
-  const slug = getIconSlug(name);
-  const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-  const icons = SimpleIcons as Record<string, SimpleIcon>;
-  return icons[iconKey];
-};
 
 const Skills: React.FC = () => {
   const skillCategories: SkillCategory[] = [

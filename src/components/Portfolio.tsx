@@ -1,7 +1,6 @@
 import { ReactNode, useRef, useEffect } from "react";
 import { getAssetPath } from "../utils/assetPath";
-import * as SimpleIcons from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
+import { getIconByName, siSlickpic } from "../utils/simpleIcons";
 
 interface Project {
   title: string;
@@ -20,30 +19,6 @@ interface Project {
     caption: string;
   }>;
 }
-
-const getIconSlug = (name: string): string => {
-  // Convert common names to their simple-icons slug
-  const nameMap: { [key: string]: string } = {
-    React: "react",
-    TypeScript: "typescript",
-    JavaScript: "javascript",
-    "Next.js": "nextdotjs",
-    TailwindCSS: "tailwindcss",
-    Vite: "vite",
-    MDX: "mdx",
-    CSS: "css3",
-    Wagmi: "wagmi",
-  };
-
-  return nameMap[name] || name.toLowerCase().replace(/\s+/g, "");
-};
-
-const getIconByName = (name: string): SimpleIcon | undefined => {
-  const slug = getIconSlug(name);
-  const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
-  const icons = SimpleIcons as Record<string, SimpleIcon>;
-  return icons[iconKey];
-};
 
 const Work = () => {
   const dialogRefs = useRef<(HTMLDialogElement | null)[]>([]);
@@ -219,10 +194,10 @@ const Work = () => {
           xmlns="http://www.w3.org/2000/svg"
           width={24}
           height={24}
-          fill={`#${SimpleIcons.siSlickpic.hex}`}
+          fill={`#${siSlickpic.hex}`}
           aria-label="SlickPic"
         >
-          <path d={SimpleIcons.siSlickpic.path} />
+          <path d={siSlickpic.path} />
         </svg>
       ),
       description:
