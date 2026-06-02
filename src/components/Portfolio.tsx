@@ -11,6 +11,7 @@ interface Project {
   coverImage?: {
     src: string;
     alt: string;
+    style?: React.CSSProperties;
   };
   images?: Array<{
     src: string;
@@ -108,6 +109,7 @@ const Work = () => {
       coverImage: {
         src: getAssetPath("work/fabrica/cover.gif"),
         alt: "Fabrica cover image",
+        style: { objectPosition: "top" },
       },
       videos: [
         {
@@ -208,6 +210,7 @@ const Work = () => {
       coverImage: {
         src: getAssetPath("work/custom-blog/cover.gif"),
         alt: "",
+        style: { objectPosition: "top" },
       },
       videos: [
         {
@@ -348,6 +351,7 @@ const Work = () => {
                         <div key={imgIndex} className="project-image-wrapper">
                           <img
                             className="project-image"
+                            style={project.coverImage?.style}
                             src={imageSrc}
                             alt={imageAlt}
                             width={240}
