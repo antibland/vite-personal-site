@@ -998,11 +998,18 @@ button.project-images-stack:hover .project-image-wrapper:first-child {
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
-    transition: opacity 0.2s ease;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    transition:
+      opacity 0.2s ease,
+      backdrop-filter 0.2s ease,
+      -webkit-backdrop-filter 0.2s ease;
   }
 
   &.dialog-open::backdrop {
     opacity: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .dialog-content {
