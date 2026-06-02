@@ -8,6 +8,10 @@ interface Project {
   technologies: string[];
   link?: string;
   icon?: ReactNode;
+  coverImage?: {
+    src: string;
+    alt: string;
+  };
   images?: Array<{
     src: string;
     alt: string;
@@ -101,6 +105,10 @@ const Work = () => {
         "Motion",
       ],
       link: "https://fabrica.land/",
+      coverImage: {
+        src: getAssetPath("work/fabrica/cover.gif"),
+        alt: "Fabrica cover image",
+      },
       videos: [
         {
           src: getAssetPath("work/fabrica/flip.mov"),
@@ -197,6 +205,10 @@ const Work = () => {
       description:
         "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
       technologies: ["React", "Vite", "TypeScript", "MDX", "Claude"],
+      coverImage: {
+        src: getAssetPath("work/custom-blog/cover.gif"),
+        alt: "",
+      },
       videos: [
         {
           src: getAssetPath("work/custom-blog/view-transition-api.mov"),
@@ -323,12 +335,23 @@ const Work = () => {
                       const numAssets = project.images
                         ? project.images.length + (project.videos?.length || 0)
                         : 0;
+                      const isFirstImageInStack = imgIndex === 0;
+                      const shouldUseCoverImage =
+                        isFirstImageInStack && !!project.coverImage?.src;
+                      const imageSrc = shouldUseCoverImage
+                        ? project.coverImage!.src
+                        : image.src;
+                      const imageAlt = shouldUseCoverImage
+                        ? project.coverImage!.alt
+                        : image.alt;
                       return (
                         <div key={imgIndex} className="project-image-wrapper">
                           <img
                             className="project-image"
-                            src={image.src}
-                            alt={image.alt}
+                            src={imageSrc}
+                            alt={imageAlt}
+                            width={240}
+                            height={150}
                           />
                           {imgIndex === 0 && (
                             <div className="project-image-caption">
