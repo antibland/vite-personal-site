@@ -219,17 +219,17 @@ const Work = () => {
           caption:
             "Using the View Transition API to create a smooth transition between pages",
         },
-        {
-          src: getAssetPath("work/custom-blog/lighthouse-100-percent.mov"),
-          alt: "100 Percent Lighthouse Score",
-          caption: "A perfect Lighthouse score",
-        },
       ],
       images: [
         {
           src: getAssetPath("work/custom-blog/1.webp"),
           alt: "Blog post editor with live preview",
           caption: "Rich markdown editor with live preview",
+        },
+        {
+          src: getAssetPath("work/custom-blog/2.webp"),
+          alt: "Perfect Lighthouse report in all categories",
+          caption: "Perfect Lighthouse report in all categories",
         },
       ],
     },
