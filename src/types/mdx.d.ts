@@ -23,6 +23,7 @@ declare module "*.mdx" {
     featured?: boolean;
     draft?: boolean;
     toc?: boolean;
+    image?: string;
 
     // SEO
     keywords?: string[];

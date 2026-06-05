@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, ScrollRestoration } from "react-router-dom";
 import { getAssetPath } from "../utils/assetPath";
 import "../styles/reset.css";
 import "../styles/main.css";
@@ -99,6 +99,7 @@ const Layout: React.FC = () => {
       <footer className="main-footer">
         <p>© {new Date().getFullYear()} Andy Hoffman. All rights reserved.</p>
       </footer>
+      <ScrollRestoration />
     </div>
   );
 };
