@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://andyhoffman.codes/</loc>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/portfolio</loc>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/skills</loc>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/blog</loc>
+    <lastmod>2026-05-22</lastmod>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/contact</loc>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/post/next-js-active-nav-with-only-css</loc>
+    <lastmod>2024-12-29</lastmod>
+  </url>
+  <url>
+    <loc>https://andyhoffman.codes/post/senior-development-in-2026</loc>
+    <lastmod>2026-05-22</lastmod>
+  </url>
+</urlset>
