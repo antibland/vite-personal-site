@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "node scripts/generate-sitemap.mjs && tsc && vite build && node scripts/generate-404-html.mjs",
+    "build": "node scripts/generate-sitemap.mjs && tsc && vite build && node scripts/generate-extensionless-html.mjs && node scripts/generate-404-html.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "serve dist",
     "lighthouse": "node scripts/lighthouse-preview.mjs",
