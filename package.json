@@ -10,9 +10,9 @@
   "scripts": {
     "dev": "vite",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "node scripts/generate-sitemap.mjs && tsc && vite build",
+    "build": "node scripts/generate-sitemap.mjs && tsc && vite build && node scripts/generate-404-html.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "preview": "serve dist",
     "lighthouse": "node scripts/lighthouse-preview.mjs",
     "lighthouse:desktop": "node scripts/lighthouse-preview.mjs --preset=desktop",
     "lighthouse:view": "node scripts/lighthouse-preview.mjs --view --output=html --output-path=./lighthouse-report.html"
@@ -42,6 +42,7 @@
     "lighthouse": "^12.8.2",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
+    "serve": "^14.2.6",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.10",

@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Archive from "./components/Archive";
 import Post from "./components/Post";
 import TagPosts from "./components/TagPosts";
+import NotFound from "./components/NotFound";
 
 export const routes: RouteObject[] = [
   {
@@ -22,6 +23,7 @@ export const routes: RouteObject[] = [
       { path: "contact", Component: Contact },
       { path: "post/:slug", Component: Post },
       { path: "tag/:tag", Component: TagPosts },
+      { path: "*", Component: NotFound },
     ],
   },
 ];

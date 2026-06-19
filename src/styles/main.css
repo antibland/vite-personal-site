@@ -176,6 +176,29 @@ body {
   }
 }
 
+.not-found-section {
+  max-width: 36rem;
+}
+
+.not-found-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    transition: outline-color 0.2s ease;
+
+    &:hover {
+      outline-color: var(--primary-color);
+    }
+  }
+}
+
 .posts {
   & > article {
     margin-bottom: var(--space-4);

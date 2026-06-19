@@ -12,6 +12,7 @@ interface PageSeoOptions {
   path: string;
   image?: string;
   type?: "website" | "article";
+  noindex?: boolean;
 }
 
 export function usePageSeo({
@@ -20,6 +21,7 @@ export function usePageSeo({
   path,
   image = DEFAULT_OG_IMAGE,
   type = "website",
+  noindex = false,
 }: PageSeoOptions) {
   const url = `${SITE_URL}${path}`;
   const pageTitle =
@@ -36,5 +38,6 @@ export function usePageSeo({
     ogSiteName: SITE_NAME,
     twitterCard: "summary_large_image",
     twitterImage: image,
+    ...(noindex ? { robots: "noindex" } : {}),
   });
 }
