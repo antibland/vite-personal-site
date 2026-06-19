@@ -1,6 +1,7 @@
 import { ReactNode, useRef, useEffect } from "react";
 import { getAssetPath } from "../utils/assetPath";
 import { getIconByName, siSlickpic } from "../utils/simpleIcons";
+import { usePageSeo } from "../utils/seo";
 
 interface Project {
   title: string;
@@ -26,6 +27,13 @@ interface Project {
 }
 
 const Work = () => {
+  usePageSeo({
+    title: "Portfolio",
+    description:
+      "Selected projects and work by Andy Hoffman — full-stack engineering, front-end, and product development.",
+    path: "/portfolio",
+  });
+
   const dialogRefs = useRef<(HTMLDialogElement | null)[]>([]);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);

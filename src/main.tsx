@@ -1,6 +1,10 @@
-import * as React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
+import { StrictMode } from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider, type HydrationState } from "react-router-dom";
+import { createHead, UnheadProvider } from "@unhead/react/client";
+import { MDXProvider } from "@mdx-js/react";
+import { mdxComponents } from "./mdx-components";
+import { routes } from "./routes";
 
 // React Router (and React's ViewTransition integration in canary) uses the
 // browser View Transitions API. When users click rapidly, the browser is allowed
@@ -16,8 +20,7 @@ if (import.meta.env.DEV) {
       typeof reason === "object" && reason !== null
         ? (reason as { name?: unknown; message?: unknown })
         : null;
-    const name =
-      err && typeof err.name === "string" ? err.name : "";
+    const name = err && typeof err.name === "string" ? err.name : "";
     const message =
       err && typeof err.message === "string" ? err.message : "";
 
@@ -27,8 +30,28 @@ if (import.meta.env.DEV) {
   });
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const hydrationData = (
+  window as Window & { __staticRouterHydrationData?: HydrationState }
+).__staticRouterHydrationData;
+
+const head = createHead();
+const router = createBrowserRouter(routes, {
+  ...(hydrationData ? { hydrationData } : {}),
+});
+
+const rootElement = document.getElementById("app")!;
+const app = (
+  <StrictMode>
+    <UnheadProvider head={head}>
+      <MDXProvider components={mdxComponents}>
+        <RouterProvider router={router} />
+      </MDXProvider>
+    </UnheadProvider>
+  </StrictMode>
 );
+
+if (import.meta.env.DEV) {
+  createRoot(rootElement).render(app);
+} else {
+  hydrateRoot(rootElement, app);
+}

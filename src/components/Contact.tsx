@@ -1,7 +1,14 @@
 import React from "react";
 import { getAssetPath } from "../utils/assetPath";
+import { usePageSeo } from "../utils/seo";
 
 const Contact: React.FC = () => {
+  usePageSeo({
+    title: "Contact",
+    description: "Get in touch with Andy Hoffman.",
+    path: "/contact",
+  });
+
   return (
     <section id="contact" className="section contact-section">
       <div className="contact-heading-row">

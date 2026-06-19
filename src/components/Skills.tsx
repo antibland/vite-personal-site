@@ -1,5 +1,6 @@
 import React from "react";
 import { getIconByName } from "../utils/simpleIcons";
+import { usePageSeo } from "../utils/seo";
 
 interface SkillCategory {
   name: string;
@@ -10,6 +11,13 @@ interface SkillCategory {
 }
 
 const Skills: React.FC = () => {
+  usePageSeo({
+    title: "Skills",
+    description:
+      "Technologies and tools Andy Hoffman works with — from React and TypeScript to AI and DevOps.",
+    path: "/skills",
+  });
+
   const skillCategories: SkillCategory[] = [
     {
       name: "AI",

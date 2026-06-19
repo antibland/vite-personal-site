@@ -2,6 +2,7 @@ import { FC, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getAssetPath } from "../utils/assetPath";
 import { getLatestPublishedPost } from "../utils/posts";
+import { usePageSeo } from "../utils/seo";
 import {
   siFiles,
   siGithub,
@@ -16,6 +17,13 @@ const CODEPEN_SVG_PATH =
 
 const About: FC = () => {
   const latestPost = useMemo(() => getLatestPublishedPost(), []);
+
+  usePageSeo({
+    title: "About",
+    description:
+      "Andy Hoffman — senior full-stack engineer, front-end expert, and team builder.",
+    path: "/",
+  });
 
   return (
     <div id="home" className="section about-section">

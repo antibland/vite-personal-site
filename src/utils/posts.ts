@@ -47,3 +47,19 @@ export function loadPublishedPosts(): Post[] {
 export function getLatestPublishedPost(): Post | undefined {
   return loadPublishedPosts()[0];
 }
+
+export function getPostBySlug(slug: string | undefined): MDXModule | null {
+  if (!slug) return null;
+
+  const postFile = Object.entries(postModules).find(([path]) =>
+    path.includes(`${slug}.mdx`),
+  );
+
+  if (!postFile) return null;
+  if (!postFile[1].frontmatter) {
+    console.warn(`No frontmatter found for ${postFile[0]}`);
+    return null;
+  }
+
+  return postFile[1];
+}
