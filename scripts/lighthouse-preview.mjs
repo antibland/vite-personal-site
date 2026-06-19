@@ -33,7 +33,7 @@ async function waitForServer(url, timeoutMs = 30_000) {
 function runPreview() {
   return spawn(
     "pnpm",
-    ["exec", "vite", "preview", "--host", HOST, "--port", String(PORT)],
+    ["exec", "serve", "dist", "-l", String(PORT)],
     { stdio: "inherit" },
   );
 }
