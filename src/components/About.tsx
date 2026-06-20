@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import { getAssetPath } from "../utils/assetPath";
 import { getLatestPublishedPost } from "../utils/posts";
 import { usePageSeo } from "../utils/seo";
-import {
-  siFiles,
-  siGithub,
-  siStackoverflow,
-  siX,
-} from "../utils/simpleIcons";
+import { siFiles, siGithub, siStackoverflow, siX } from "../utils/simpleIcons";
 
 // CodePen was removed from simple-icons (no brand permission to redistribute the mark).
 // This path is the CC0 shape previously shipped as `siCodepen` in simple-icons@14.15.0.
@@ -119,6 +114,7 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="GitHub"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
@@ -134,6 +130,7 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="X (Twitter)"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
@@ -149,6 +146,7 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="CodePen"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
@@ -164,13 +162,11 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="Stack Overflow"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
-                <path
-                  fill="currentColor"
-                  d={siStackoverflow.path}
-                />
+                <path fill="currentColor" d={siStackoverflow.path} />
               </svg>
               <span>Stack Overflow</span>
             </a>
@@ -182,6 +178,7 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="LinkedIn"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
@@ -200,6 +197,7 @@ const About: FC = () => {
             >
               <svg
                 role="img"
+                aria-label="Resume (PDF)"
                 viewBox="0 0 24 24"
                 style={{ width: "24px", height: "24px" }}
               >
