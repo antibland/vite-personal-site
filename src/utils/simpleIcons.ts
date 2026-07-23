@@ -63,6 +63,7 @@ const nameToSlug: Record<string, string> = {
   TypeScript: "typescript",
   JavaScript: "javascript",
   WCAG: "wcag",
+  HTML: "html5",
   HTML5: "html5",
   Claude: "claude",
   Cursor: "cursor",

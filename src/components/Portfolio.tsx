@@ -92,7 +92,7 @@ const Work = () => {
 
   const projects: Project[] = [
     {
-      title: "Fabrica (current)",
+      title: "Fabrica",
       icon: (
         <img
           src={getAssetPath("icons/fabrica.png")}
@@ -200,6 +200,61 @@ const Work = () => {
           src: getAssetPath("work/better-do-it/5.webp"),
           alt: "Hand-rolled comment system",
           caption: "Hand-rolled comment system",
+        },
+      ],
+    },
+    {
+      title: "Hide Anything",
+      icon: (
+        // Struck-through eye mark from the extension's Chrome Web Store branding
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          width={24}
+          height={24}
+          fill="none"
+          stroke="#2563eb"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-label="Hide Anything"
+        >
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M4 4l16 16" />
+        </svg>
+      ),
+      description:
+        "A Chrome extension that lets you hide the clutter on any website—job listings, posts, ads, and more—with one click. Toggle per site, re-detect items, and unhide anything when you need it back.",
+      technologies: ["JavaScript", "HTML", "CSS"],
+      link: "https://chromewebstore.google.com/detail/hide-anything/dlagfplpmbfblhhehiphcibebgflliie",
+      coverImage: {
+        src: getAssetPath("work/hide-anything/marquee_promo_1400x560.jpg"),
+        alt: "Hide Anything cover image",
+        // Wide marquee promo — contain so sides aren't cropped by the stack frame
+        style: { objectFit: "contain", objectPosition: "center" },
+      },
+      images: [
+        {
+          src: getAssetPath("work/hide-anything/1.jpg"),
+          alt: "Hide Anything extension popup",
+          caption: "Per-site toggle with hidden and detected item counts",
+        },
+        {
+          src: getAssetPath("work/hide-anything/2.jpg"),
+          alt: "Hide button on a job listing",
+          caption: "One-click Hide button overlaid on any page element",
+        },
+        {
+          src: getAssetPath("work/hide-anything/3.jpg"),
+          alt: "Unhide control on faded listings",
+          caption: "Hidden items stay recoverable with a quick Unhide action",
+        },
+        {
+          src: getAssetPath("work/hide-anything/4.jpg"),
+          alt: "Decluttered job board view",
+          caption: "A cleaner browsing experience once clutter is tucked away",
         },
       ],
     },
@@ -359,7 +414,11 @@ const Work = () => {
                         <div key={imgIndex} className="project-image-wrapper">
                           <img
                             className="project-image"
-                            style={project.coverImage?.style}
+                            style={
+                              shouldUseCoverImage
+                                ? project.coverImage?.style
+                                : undefined
+                            }
                             src={imageSrc}
                             alt={imageAlt}
                             width={240}
