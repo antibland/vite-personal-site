@@ -268,7 +268,7 @@ const Work = () => {
         </svg>
       ),
       description:
-        "This web app integreates with a custom markdown blog, and allows you to create, edit, and delete posts.",
+        "This web app integrates with a custom markdown blog, and allows you to create, edit, and delete posts.",
       technologies: ["React", "Vite", "TypeScript", "MDX", "Claude"],
       coverImage: {
         src: getAssetPath("work/custom-blog/cover.gif"),
