@@ -161,7 +161,9 @@ body {
   width: var(--main-content-width);
   max-width: 100%;
 
-  &:has(.about-section) {
+  /* About and Portfolio need the full container width (up to 1200px) */
+  &:has(.about-section),
+  &:has(#portfolio) {
     width: auto;
   }
 
@@ -485,10 +487,10 @@ body {
   }
 }
 
-/* Project Cards */
+/* Project Cards — fluid 1→3 columns; min() keeps a single track from overflowing on narrow viewports */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 2rem;
 }
 
