@@ -232,8 +232,8 @@ const Work = () => {
       coverImage: {
         src: getAssetPath("work/hide-anything/marquee_promo_1400x560.jpg"),
         alt: "Hide Anything cover image",
-        // Wide marquee promo — contain so sides aren't cropped by the stack frame
-        style: { objectFit: "contain", objectPosition: "center" },
+        // Pin crop to the left so the title/icon stay visible in the stack frame
+        style: { objectPosition: 0 },
       },
       images: [
         {
